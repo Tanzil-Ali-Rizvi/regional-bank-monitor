@@ -1,0 +1,20 @@
+[project]
+name = "regional-bank-monitor"
+version = "1.0.0"
+description = "Funding, rate and credit risk across 101 US regional banks from FDIC call reports, with an Excel rate-scenario model, a Power BI report and a grounded bank-analyst assistant."
+requires-python = ">=3.11"
+license = { text = "MIT" }
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 165
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+
+[tool.ruff.lint.per-file-ignores]
+"powerbi/build_pbip.py" = ["E501"]
