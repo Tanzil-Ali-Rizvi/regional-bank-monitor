@@ -125,12 +125,12 @@ def _render(call: dict, r: dict) -> str:  # noqa: C901 - one template per tool
         return f"I could not answer that from the data: {r['error']}."
     if t == "peer_overview":
         bands = ", ".join(f"{v} in {k}" for k, v in r["size_bands"].items())
-        return (f"{r['banks']} US regional banks with $10-250B of assets ({bands}; ${r['assets_trillion']}T in total), {r['quarter']}:\n"
+        return (f"{r['banks']} US regional banks with $10-250B of assets ({bands}; ${r['assets_trillion']}T in total), {r['quarter']}:\n\n"
                 f"- Median net interest margin {r['median_nim']}%, up from a low of {r['median_nim_trough']}% in {r['nim_trough_quarter']}.\n"
                 f"- Median cost of deposits {r['median_deposit_cost']}%, down from a peak of {r['median_deposit_cost_peak']}%.\n"
                 f"- The median bank passed {r['median_deposit_beta']} of each point of Fed hikes on to depositors (deposit beta).\n"
                 f"- Median CET1 ratio {r['median_cet1']}%; median uninsured deposits {r['median_uninsured']}%.\n"
-                f"- {r['banks_no_flags']} banks raise no risk flag; {r['banks_two_plus_flags']} raise two or more.\n"
+                f"- {r['banks_no_flags']} banks raise no risk flag; {r['banks_two_plus_flags']} raise two or more.\n\n"
                 f"Fed funds averaged {r['fed_funds_q2_2026']}% in Q2 2026 and {r['fed_funds_latest']}% in {r['fed_funds_latest_month']}. "
                 f"Source: {r['source']}.")
     if t == "bank_profile":
@@ -143,7 +143,7 @@ def _render(call: dict, r: dict) -> str:  # noqa: C901 - one template per tool
         return (f"{r['bank']} ({r['state']}, ${r['assets_bn']}B, {r['size_band']}), {r['quarter']}: {flags}. Deposit beta "
                 f"{r['deposit_beta_hikes']} in the 2022-24 hikes (peer median {r['peer_median_beta']}); on its own history it {sens} "
                 f"{abs(r['nim_per_100bp'])} points of margin per +100bp. Overall scorecard {r['overall_score']} of 100 (rank 1 = best "
-                f"in each line below).\n{rows}")
+                f"in each line below).\n\n{rows}")
     if t == "compare_banks":
         lab = r["labels"]
         head = "| | " + " | ".join(b["bank"] for b in r["banks"]) + " | Peer median |"
@@ -169,8 +169,8 @@ def _render(call: dict, r: dict) -> str:  # noqa: C901 - one template per tool
                          f"{x['nim_change']:+} points" for x in r["by_loan_to_deposit"])
         return (f"Over the hiking cycle, {r['cycle']}, the median bank passed {r['median_beta']} of each point of Fed hikes to depositors "
                 f"(middle half {r['beta_q1']} to {r['beta_q3']}); on the way down the median beta is {r['median_beta_cuts']}. Median "
-                f"deposit costs peaked at {r['deposit_cost_peak']}% and are {r['deposit_cost_latest']}% now.\n"
-                f"What drove it (rank correlation with traits at the start of the cycle): {drv}.\n"
+                f"deposit costs peaked at {r['deposit_cost_peak']}% and are {r['deposit_cost_latest']}% now.\n\n"
+                f"What drove it (rank correlation with traits at the start of the cycle): {drv}.\n\n"
                 f"Banks that had lent out more of their deposits paid up the most: {terc}.")
     if t == "lessons_2023":
         c = r["comparison"]
@@ -181,12 +181,12 @@ def _render(call: dict, r: dict) -> str:  # noqa: C901 - one template per tool
                     f"survivor median {v['peer_median']}")
         run = r["first_republic_run"]
         two = ", ".join(r["survivors_two_names"]) or "none"
-        return (f"At {r['as_of']}:\n" + "\n".join(line(k) for k in c) + "\n"
+        return (f"At {r['as_of']}:\n\n" + "\n".join(line(k) for k in c) + "\n\n"
                 f"Screen ({'; '.join(r['rules'])}): {r['failed_all_three']} of 3 failures tripped all three rules and "
                 f"{r['survivors_all_three']} surviving banks did; {r['survivors_two']} survivors tripped two ({two}). Securities losses "
                 f"alone did not separate them: {r['survivors_losses_worse_than_signature']} survivors had deeper losses relative to "
                 f"capital than Signature. The thresholds were set with hindsight, so I tested {r['grid_settings']} settings: "
-                f"{r['grid_all_caught']} catch all three failures and none flags more than {r['grid_max_survivors']} survivor.\n"
+                f"{r['grid_all_caught']} catch all three failures and none flags more than {r['grid_max_survivors']} survivor.\n\n"
                 f"First Republic's deposits fell from ${run['deposits_q4_2022_bn']}B to ${run['deposits_q1_2023_bn']}B "
                 f"({run['change_pct']}%) in Q1 2023 while FHLB borrowing rose from {run['fhlb_to_assets_q4_2022']}% to "
                 f"{run['fhlb_to_assets_q1_2023']}% of assets.")
@@ -199,13 +199,13 @@ def _render(call: dict, r: dict) -> str:  # noqa: C901 - one template per tool
         counts = "; ".join(f"{x['flag']}: {x['banks']}" for x in r["flag_counts"])
         watch = "\n".join(f"- {x['bank']} (${x['assets_bn']}B): {x['flags']} flags ({'; '.join(x['reasons'])})" for x in r["watch_list"])
         return (f"Risk screen, {r['quarter']}: {r['banks_no_flags']} banks raise no flag and {r['banks_two_plus']} raise two or more.\n"
-                f"Banks per flag: {counts}.\nWatch list:\n{watch}\nA flag is a prompt to look closer, not a verdict.")
+                f"Banks per flag: {counts}.\n\nWatch list:\n\n{watch}\n\nA flag is a prompt to look closer, not a verdict.")
     if t == "cre_credit":
         top = ", ".join(f"{x['bank']} {x['cre_concentration']}%" for x in r["most_concentrated"])
         bands = "; ".join(f"{x['band']} ({x['banks']} banks): net charge-offs {x['nco_rate']}%, noncurrent {x['noncurrent_rate']}%"
                           for x in r["nco_by_band_since_2024"])
         return (f"{r['banks_over_300']} banks hold CRE above 300% of capital in {r['quarter']}, down from {r['peak_over_300']} in "
-                f"{r['peak_quarter']} (median {r['median_cre_concentration']}%). Most concentrated: {top}.\n"
+                f"{r['peak_quarter']} (median {r['median_cre_concentration']}%). Most concentrated: {top}.\n\n"
                 f"Credit since 2024 by concentration band: {bands}. So far the concentrated banks have not lost more, but {r['caveat']}.")
     if t == "rate_exposure":
         if "bank" in r:
