@@ -1,0 +1,1119 @@
+table _Measures
+	lineageTag: d12066e6-4d4b-589c-a982-ead8115e34d4
+
+	measure _NIM =
+			DIVIDE(SUMX(FILTER(Quarterly, NOT ISBLANK(Quarterly[fdic_nim])), Quarterly[fdic_nim] * Quarterly[earning_assets]), SUMX(FILTER(Quarterly, NOT ISBLANK(Quarterly[fdic_nim])), Quarterly[earning_assets]))
+		formatString: 0.00
+		isHidden
+		displayFolder: 00 Base (unscoped)
+		lineageTag: 6c859138-6da1-5970-b6d1-d69b23d73097
+
+	measure '_Asset Yield' =
+			DIVIDE(SUMX(FILTER(Quarterly, NOT ISBLANK(Quarterly[fdic_asset_yield])), Quarterly[fdic_asset_yield] * Quarterly[earning_assets]), SUMX(FILTER(Quarterly, NOT ISBLANK(Quarterly[fdic_asset_yield])), Quarterly[earning_assets]))
+		formatString: 0.00
+		isHidden
+		displayFolder: 00 Base (unscoped)
+		lineageTag: f49012cd-7e10-55d4-bcfb-788ed914c61b
+
+	measure '_Cost of Funds' =
+			DIVIDE(SUMX(FILTER(Quarterly, NOT ISBLANK(Quarterly[fdic_cost_of_funds])), Quarterly[fdic_cost_of_funds] * Quarterly[earning_assets]), SUMX(FILTER(Quarterly, NOT ISBLANK(Quarterly[fdic_cost_of_funds])), Quarterly[earning_assets]))
+		formatString: 0.00
+		isHidden
+		displayFolder: 00 Base (unscoped)
+		lineageTag: 7191c877-3d54-54dd-a050-9e08ee2cda9e
+
+	measure '_Deposit Cost' =
+			DIVIDE(SUM(Quarterly[deposit_interest_expense]) * 4, SUM(Quarterly[avg_domestic_deposits])) * 100
+		formatString: 0.00
+		isHidden
+		displayFolder: 00 Base (unscoped)
+		lineageTag: 1f14e61a-65b0-5276-bffb-a5f96d3bea63
+
+	measure '_Uninsured Share' =
+			DIVIDE(SUM(Quarterly[uninsured_deposits]), SUM(Quarterly[domestic_deposits])) * 100
+		formatString: 0.00
+		isHidden
+		displayFolder: 00 Base (unscoped)
+		lineageTag: 90e98fc2-fd00-5b85-a8b4-2ec634b1a5d7
+
+	measure '_Loan to Deposit' =
+			DIVIDE(SUM(Quarterly[loans]), SUM(Quarterly[deposits])) * 100
+		formatString: 0.00
+		isHidden
+		displayFolder: 00 Base (unscoped)
+		lineageTag: 27757f6d-151c-53dc-961e-5ef9f07b496e
+
+	measure '_Brokered Share' =
+			DIVIDE(SUM(Quarterly[brokered_deposits]), SUM(Quarterly[deposits])) * 100
+		formatString: 0.00
+		isHidden
+		displayFolder: 00 Base (unscoped)
+		lineageTag: fb26cf10-e895-5a20-8101-688cfc6dbbaa
+
+	measure '_CRE Concentration' =
+			DIVIDE(SUM(Quarterly[cre_loans]), SUM(Quarterly[capital_base])) * 100
+		formatString: 0.00
+		isHidden
+		displayFolder: 00 Base (unscoped)
+		lineageTag: d2345dc7-1ea9-50ab-bf75-5bf75bcafa6b
+
+	measure '_Construction Concentration' =
+			DIVIDE(SUM(Quarterly[construction_loans]), SUM(Quarterly[capital_base])) * 100
+		formatString: 0.00
+		isHidden
+		displayFolder: 00 Base (unscoped)
+		lineageTag: 8e3f4e7a-67ed-582e-9abd-63aec7a2dfef
+
+	measure '_Unrealized to Tier1' =
+			DIVIDE(SUM(Quarterly[unrealized_securities]), SUM(Quarterly[tier1_capital])) * 100
+		formatString: 0.00
+		isHidden
+		displayFolder: 00 Base (unscoped)
+		lineageTag: dd8195fb-a16c-56d1-8aea-3d1fb9b11c1a
+
+	measure '_Liquidity Coverage' =
+			DIVIDE(SUM(Quarterly[liquid_assets]), SUM(Quarterly[uninsured_deposits])) * 100
+		formatString: 0.00
+		isHidden
+		displayFolder: 00 Base (unscoped)
+		lineageTag: 414bee76-442a-5404-b7b4-43ab48609f86
+
+	measure '_CET1 Ratio' =
+			DIVIDE(SUMX(FILTER(Quarterly, NOT ISBLANK(Quarterly[fdic_cet1_ratio])), Quarterly[fdic_cet1_ratio] * Quarterly[rwa]), SUMX(FILTER(Quarterly, NOT ISBLANK(Quarterly[fdic_cet1_ratio])), Quarterly[rwa]))
+		formatString: 0.00
+		isHidden
+		displayFolder: 00 Base (unscoped)
+		lineageTag: 0d035d1f-6169-5c23-bf5b-f9bcf0855ffb
+
+	measure '_CET1 Marked' =
+			DIVIDE(SUM(Quarterly[cet1_marked_capital]), SUM(Quarterly[rwa])) * 100
+		formatString: 0.00
+		isHidden
+		displayFolder: 00 Base (unscoped)
+		lineageTag: d411bece-b9d7-528e-8f2c-4530fd801560
+
+	measure '_NCO Rate' =
+			DIVIDE(SUM(Quarterly[net_charge_offs]) * 4, SUM(Quarterly[avg_loans])) * 100
+		formatString: 0.00
+		isHidden
+		displayFolder: 00 Base (unscoped)
+		lineageTag: 08a97f1d-606a-5b07-8f23-a91d007f42c4
+
+	measure '_Noncurrent Rate' =
+			DIVIDE(SUM(Quarterly[noncurrent_loans]), SUM(Quarterly[loans])) * 100
+		formatString: 0.00
+		isHidden
+		displayFolder: 00 Base (unscoped)
+		lineageTag: 1e228176-c449-54a8-83f9-651c84a10941
+
+	measure _ROA =
+			DIVIDE(SUMX(FILTER(Quarterly, NOT ISBLANK(Quarterly[fdic_roa])), Quarterly[fdic_roa] * Quarterly[assets]), SUMX(FILTER(Quarterly, NOT ISBLANK(Quarterly[fdic_roa])), Quarterly[assets]))
+		formatString: 0.00
+		isHidden
+		displayFolder: 00 Base (unscoped)
+		lineageTag: bd6e386d-8b81-52bc-9560-3e215005f493
+
+	measure _Efficiency =
+			DIVIDE(SUMX(FILTER(Quarterly, NOT ISBLANK(Quarterly[fdic_efficiency])), Quarterly[fdic_efficiency] * Quarterly[revenue]), SUMX(FILTER(Quarterly, NOT ISBLANK(Quarterly[fdic_efficiency])), Quarterly[revenue]))
+		formatString: 0.00
+		isHidden
+		displayFolder: 00 Base (unscoped)
+		lineageTag: 0cabde59-0a18-5c4a-8152-4afb88a2704d
+
+	measure '_Deposits $B' =
+			DIVIDE(SUM(Quarterly[deposits]), 1000)
+		formatString: 0.00
+		isHidden
+		displayFolder: 00 Base (unscoped)
+		lineageTag: 2673d909-c9c0-5a13-a92e-f8c02c005821
+
+	measure '_Assets $B' =
+			DIVIDE(SUM(Quarterly[assets]), 1000)
+		formatString: 0.00
+		isHidden
+		displayFolder: 00 Base (unscoped)
+		lineageTag: 26f85bee-54a7-59b1-b7e5-90355f8ba4fc
+
+	measure '_Fed Funds' =
+			AVERAGE(Quarters[fed_funds])
+		formatString: 0.00
+		isHidden
+		displayFolder: 00 Base (unscoped)
+		lineageTag: 39357e47-4f4e-5a18-a653-dad733a45306
+
+	measure 'Selected Quarter' =
+			IF(HASONEVALUE(Quarters[quarter_end]), VALUES(Quarters[quarter_end]), CALCULATE(MAX(Quarterly[quarter_end]), REMOVEFILTERS()))
+		formatString: yyyy-mm-dd
+		displayFolder: 01 Core
+		lineageTag: 3b0f8bc1-f481-5043-b62f-237affac6fa3
+
+	measure 'Selected Quarter Label' =
+			VAR q = [Selected Quarter]
+			RETURN "Q" & QUARTER(q) & " " & YEAR(q)
+		displayFolder: 01 Core
+		lineageTag: d8699678-7723-5333-99df-e63b491acfe4
+
+	measure Banks =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE(CALCULATE(DISTINCTCOUNT(Quarterly[cert]), KEEPFILTERS(Banks[failed] = FALSE())), REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0
+		displayFolder: 01 Core
+		lineageTag: ed7311aa-f6f3-52a3-aab8-bfe4fc1a6e04
+
+	measure 'Total Assets $B' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE(CALCULATE([_Assets $B], KEEPFILTERS(Banks[failed] = FALSE())), REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: #,0
+		displayFolder: 01 Core
+		lineageTag: a0ad8f27-1abf-5716-87ab-39073e7ef6fd
+
+	measure 'Assets by Quarter $B' =
+			CALCULATE([_Assets $B], KEEPFILTERS(Banks[failed] = FALSE()))
+		formatString: #,0
+		displayFolder: 01 Core
+		lineageTag: 0dc6db37-3369-5c98-a4e6-2512296a091e
+
+	measure 'Deposits by Quarter $B' =
+			[_Deposits $B]
+		formatString: #,0.0
+		displayFolder: 01 Core
+		lineageTag: 954ac146-fe2e-54d8-93a4-3d9075671809
+
+	measure 'Fed Funds %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE([_Fed Funds], REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 01 Core
+		lineageTag: 8b74472a-2ed0-547d-a4c7-a43580d3c675
+
+	measure 'Fed Funds by Quarter %' =
+			[_Fed Funds]
+		formatString: 0.00
+		displayFolder: 01 Core
+		lineageTag: 19f1b726-c4bb-5be5-8408-7662d7a3056a
+
+	measure 'NIM %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE([_NIM], REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 02 Earnings
+		lineageTag: 5bd601f5-b151-5c74-af48-ef522f110b0f
+
+	measure 'Asset Yield %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE([_Asset Yield], REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 02 Earnings
+		lineageTag: ebba61e4-c7dc-51d4-8746-d0e14ea43b12
+
+	measure 'Cost of Funds %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE([_Cost of Funds], REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 02 Earnings
+		lineageTag: 0d4a63e7-c255-5e62-9b0c-8918b21ac384
+
+	measure 'ROA %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE([_ROA], REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 02 Earnings
+		lineageTag: 91192dce-99bb-53d5-9bfa-81fb7d4e543d
+
+	measure 'Efficiency %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE([_Efficiency], REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 02 Earnings
+		lineageTag: 305717f2-14f2-576f-9b87-2175593881f9
+
+	measure 'Cost of Deposits %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE([_Deposit Cost], REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 03 Funding & Liquidity
+		lineageTag: 33ba9278-e412-53c8-a4ae-e9c67befec8a
+
+	measure 'Uninsured Deposits %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE([_Uninsured Share], REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 03 Funding & Liquidity
+		lineageTag: dece11a0-483c-576c-ad32-d9849a33d56f
+
+	measure 'Loans / Deposits %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE([_Loan to Deposit], REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 03 Funding & Liquidity
+		lineageTag: 7184a24c-a411-5861-9f46-5b065d0c00a4
+
+	measure 'Brokered Deposits %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE([_Brokered Share], REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 03 Funding & Liquidity
+		lineageTag: 4d6688e6-1011-524d-a0fe-20ab057743f1
+
+	measure 'Liquidity / Uninsured %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE([_Liquidity Coverage], REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 03 Funding & Liquidity
+		lineageTag: 6aacbd51-5bf5-5100-913e-029bb4d3be29
+
+	measure 'CET1 Ratio %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE([_CET1 Ratio], REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 04 Capital & Credit
+		lineageTag: fdc0319a-99ae-5579-a0d1-f4a67819fcb5
+
+	measure 'CET1 After Securities Losses %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE([_CET1 Marked], REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 04 Capital & Credit
+		lineageTag: a96194b7-235a-5d37-8ea1-c825fb0ee169
+
+	measure 'Unrealized Loss / Tier 1 %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE([_Unrealized to Tier1], REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 04 Capital & Credit
+		lineageTag: df04c2f7-4f08-52dd-952e-fea3279361cb
+
+	measure 'CRE / Capital %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE([_CRE Concentration], REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 04 Capital & Credit
+		lineageTag: b9655414-eb8d-56bb-a5d0-9e783d2f215f
+
+	measure 'Construction / Capital %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE([_Construction Concentration], REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 04 Capital & Credit
+		lineageTag: 55a96c7a-3a32-5e11-984c-bef77a1434af
+
+	measure 'NCO Rate %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE([_NCO Rate], REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 04 Capital & Credit
+		lineageTag: 2d5090b0-1000-5ea1-9e78-1eb9d47e145b
+
+	measure 'Noncurrent Loans %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE([_Noncurrent Rate], REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 04 Capital & Credit
+		lineageTag: 1fa0c045-0c7c-591b-8dc1-8759a993eaae
+
+	measure 'Median NIM %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE(CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_NIM])), [_NIM]), KEEPFILTERS(Banks[failed] = FALSE())), REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 07 Peer Medians
+		lineageTag: 34543abc-52e4-5b3c-96b0-0a0978b96141
+
+	measure 'Peer Median NIM %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE(CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_NIM])), [_NIM]), REMOVEFILTERS(Banks), Banks[failed] = FALSE()), REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 07 Peer Medians
+		lineageTag: 06ad079c-7c53-501e-8f6a-30e53c9c4e58
+
+	measure 'Median NIM % by Quarter' =
+			CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_NIM])), [_NIM]), KEEPFILTERS(Banks[failed] = FALSE()))
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: 9bb21c7c-7728-5294-9e7f-0eb790e7565a
+
+	measure 'Peer Median NIM % by Quarter' =
+			CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_NIM])), [_NIM]), REMOVEFILTERS(Banks), Banks[failed] = FALSE())
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: 980f52ae-e54a-5f51-956c-83d9e9560652
+
+	measure 'Bank NIM % by Quarter' =
+			IF(HASONEVALUE(Banks[cert]), [_NIM])
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: c342d70f-f750-55fc-a879-3afefccc2cf5
+
+	measure 'Median Cost of Deposits %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE(CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_Deposit Cost])), [_Deposit Cost]), KEEPFILTERS(Banks[failed] = FALSE())), REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 07 Peer Medians
+		lineageTag: 5bcd14c4-7fe0-51a0-8abc-e3a3a1b03f8a
+
+	measure 'Peer Median Cost of Deposits %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE(CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_Deposit Cost])), [_Deposit Cost]), REMOVEFILTERS(Banks), Banks[failed] = FALSE()), REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 07 Peer Medians
+		lineageTag: cbd1a73f-df5a-5887-98c3-4effdb67eb12
+
+	measure 'Median Cost of Deposits % by Quarter' =
+			CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_Deposit Cost])), [_Deposit Cost]), KEEPFILTERS(Banks[failed] = FALSE()))
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: dded0058-ddd6-5604-b1a5-4f201b1a7611
+
+	measure 'Peer Median Cost of Deposits % by Quarter' =
+			CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_Deposit Cost])), [_Deposit Cost]), REMOVEFILTERS(Banks), Banks[failed] = FALSE())
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: 00353ef8-8a59-57b5-a855-440612c11373
+
+	measure 'Bank Cost of Deposits % by Quarter' =
+			IF(HASONEVALUE(Banks[cert]), [_Deposit Cost])
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: 03c48b06-1608-534a-b6b2-2d031dd020a7
+
+	measure 'Median Uninsured Deposits %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE(CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_Uninsured Share])), [_Uninsured Share]), KEEPFILTERS(Banks[failed] = FALSE())), REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 07 Peer Medians
+		lineageTag: 6d596c03-91be-5491-97d5-d257cfb0552e
+
+	measure 'Peer Median Uninsured Deposits %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE(CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_Uninsured Share])), [_Uninsured Share]), REMOVEFILTERS(Banks), Banks[failed] = FALSE()), REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 07 Peer Medians
+		lineageTag: 66e4ab8d-2a97-59ac-8de8-5466b6303b2a
+
+	measure 'Median Uninsured Deposits % by Quarter' =
+			CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_Uninsured Share])), [_Uninsured Share]), KEEPFILTERS(Banks[failed] = FALSE()))
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: 9fc8d444-387b-5be2-8d9f-5c76b7d9fe6d
+
+	measure 'Peer Median Uninsured Deposits % by Quarter' =
+			CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_Uninsured Share])), [_Uninsured Share]), REMOVEFILTERS(Banks), Banks[failed] = FALSE())
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: c81d29bf-d763-5e61-af80-162fdff301d1
+
+	measure 'Bank Uninsured Deposits % by Quarter' =
+			IF(HASONEVALUE(Banks[cert]), [_Uninsured Share])
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: bf4f5ed8-a68f-5ab9-8b0d-457f7dc829b4
+
+	measure 'Median Loans / Deposits %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE(CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_Loan to Deposit])), [_Loan to Deposit]), KEEPFILTERS(Banks[failed] = FALSE())), REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 07 Peer Medians
+		lineageTag: 4d6abd36-2b0a-5e4a-98dd-578dc6fe6b1d
+
+	measure 'Peer Median Loans / Deposits %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE(CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_Loan to Deposit])), [_Loan to Deposit]), REMOVEFILTERS(Banks), Banks[failed] = FALSE()), REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 07 Peer Medians
+		lineageTag: ada74504-8c9b-54fb-a2aa-9cfcc6555e8e
+
+	measure 'Median Loans / Deposits % by Quarter' =
+			CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_Loan to Deposit])), [_Loan to Deposit]), KEEPFILTERS(Banks[failed] = FALSE()))
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: 6ed5fad2-1e12-5472-9c68-372085f6ae84
+
+	measure 'Peer Median Loans / Deposits % by Quarter' =
+			CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_Loan to Deposit])), [_Loan to Deposit]), REMOVEFILTERS(Banks), Banks[failed] = FALSE())
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: 66083df0-87bb-50f5-ba64-82d40fa67fc4
+
+	measure 'Bank Loans / Deposits % by Quarter' =
+			IF(HASONEVALUE(Banks[cert]), [_Loan to Deposit])
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: f33ea5ad-4c11-546c-a597-28e5d81dcb4a
+
+	measure 'Median CRE / Capital %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE(CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_CRE Concentration])), [_CRE Concentration]), KEEPFILTERS(Banks[failed] = FALSE())), REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 07 Peer Medians
+		lineageTag: c9cafe8a-361d-5746-9f3d-5235362650e9
+
+	measure 'Peer Median CRE / Capital %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE(CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_CRE Concentration])), [_CRE Concentration]), REMOVEFILTERS(Banks), Banks[failed] = FALSE()), REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 07 Peer Medians
+		lineageTag: b60027aa-af5c-5059-96a6-6020d55613c9
+
+	measure 'Median CRE / Capital % by Quarter' =
+			CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_CRE Concentration])), [_CRE Concentration]), KEEPFILTERS(Banks[failed] = FALSE()))
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: 7fc7bc41-7d63-5eb4-8d45-ea547f1f6679
+
+	measure 'Peer Median CRE / Capital % by Quarter' =
+			CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_CRE Concentration])), [_CRE Concentration]), REMOVEFILTERS(Banks), Banks[failed] = FALSE())
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: 354a38a5-d945-5440-abc3-961749ab2fa6
+
+	measure 'Bank CRE / Capital % by Quarter' =
+			IF(HASONEVALUE(Banks[cert]), [_CRE Concentration])
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: 1c95ad5c-d5f7-5ac2-9286-b28ad9fc24b5
+
+	measure 'Median Unrealized Loss / Tier 1 %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE(CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_Unrealized to Tier1])), [_Unrealized to Tier1]), KEEPFILTERS(Banks[failed] = FALSE())), REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 07 Peer Medians
+		lineageTag: 95e2ae6d-bb09-51bd-9a08-5224afcc0cee
+
+	measure 'Peer Median Unrealized Loss / Tier 1 %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE(CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_Unrealized to Tier1])), [_Unrealized to Tier1]), REMOVEFILTERS(Banks), Banks[failed] = FALSE()), REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 07 Peer Medians
+		lineageTag: 74898b51-8bda-518a-b54f-d5ea46a52d0f
+
+	measure 'Median Unrealized Loss / Tier 1 % by Quarter' =
+			CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_Unrealized to Tier1])), [_Unrealized to Tier1]), KEEPFILTERS(Banks[failed] = FALSE()))
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: 7a8c7867-d040-5921-ad23-ff87a97621e5
+
+	measure 'Peer Median Unrealized Loss / Tier 1 % by Quarter' =
+			CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_Unrealized to Tier1])), [_Unrealized to Tier1]), REMOVEFILTERS(Banks), Banks[failed] = FALSE())
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: f9fd63fd-73dc-59de-a9ce-6a5e2773774e
+
+	measure 'Bank Unrealized Loss / Tier 1 % by Quarter' =
+			IF(HASONEVALUE(Banks[cert]), [_Unrealized to Tier1])
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: 1a96da05-6a86-580a-a2b7-02896d54d123
+
+	measure 'Median Liquidity / Uninsured %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE(CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_Liquidity Coverage])), [_Liquidity Coverage]), KEEPFILTERS(Banks[failed] = FALSE())), REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 07 Peer Medians
+		lineageTag: f9721a02-09ce-5776-a9ae-91bdb302d8aa
+
+	measure 'Peer Median Liquidity / Uninsured %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE(CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_Liquidity Coverage])), [_Liquidity Coverage]), REMOVEFILTERS(Banks), Banks[failed] = FALSE()), REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 07 Peer Medians
+		lineageTag: 4e9a0fc5-04d7-5d5e-bf6f-b767f8e358fd
+
+	measure 'Median Liquidity / Uninsured % by Quarter' =
+			CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_Liquidity Coverage])), [_Liquidity Coverage]), KEEPFILTERS(Banks[failed] = FALSE()))
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: 190ab0a1-410d-559f-9c5c-07b0138a7f1c
+
+	measure 'Peer Median Liquidity / Uninsured % by Quarter' =
+			CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_Liquidity Coverage])), [_Liquidity Coverage]), REMOVEFILTERS(Banks), Banks[failed] = FALSE())
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: 87d445a9-f9e1-5ee0-9621-0c05b1c05a8f
+
+	measure 'Bank Liquidity / Uninsured % by Quarter' =
+			IF(HASONEVALUE(Banks[cert]), [_Liquidity Coverage])
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: 234ff619-04d3-507b-80bd-cc6a685a091d
+
+	measure 'Median CET1 Ratio %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE(CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_CET1 Ratio])), [_CET1 Ratio]), KEEPFILTERS(Banks[failed] = FALSE())), REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 07 Peer Medians
+		lineageTag: f92bb81a-5059-59ca-bb6e-1e341e35e0f5
+
+	measure 'Peer Median CET1 Ratio %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE(CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_CET1 Ratio])), [_CET1 Ratio]), REMOVEFILTERS(Banks), Banks[failed] = FALSE()), REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 07 Peer Medians
+		lineageTag: 557698ef-f637-5328-a2bd-84aab78168ff
+
+	measure 'Median CET1 Ratio % by Quarter' =
+			CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_CET1 Ratio])), [_CET1 Ratio]), KEEPFILTERS(Banks[failed] = FALSE()))
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: 4e0db70b-85b5-5a2d-83ac-9daed549717d
+
+	measure 'Peer Median CET1 Ratio % by Quarter' =
+			CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_CET1 Ratio])), [_CET1 Ratio]), REMOVEFILTERS(Banks), Banks[failed] = FALSE())
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: b13cefbb-3351-58bd-8e60-c5093cd4e2bf
+
+	measure 'Bank CET1 Ratio % by Quarter' =
+			IF(HASONEVALUE(Banks[cert]), [_CET1 Ratio])
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: c5522aae-01d8-59f4-b82b-675ad98450a2
+
+	measure 'Median CET1 After Securities Losses %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE(CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_CET1 Marked])), [_CET1 Marked]), KEEPFILTERS(Banks[failed] = FALSE())), REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 07 Peer Medians
+		lineageTag: 7c5660cb-fbe0-5baa-a7ca-808622ac8807
+
+	measure 'Peer Median CET1 After Securities Losses %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE(CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_CET1 Marked])), [_CET1 Marked]), REMOVEFILTERS(Banks), Banks[failed] = FALSE()), REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 07 Peer Medians
+		lineageTag: b74a501d-ed01-5f71-8e99-788f5d6f3842
+
+	measure 'Median CET1 After Securities Losses % by Quarter' =
+			CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_CET1 Marked])), [_CET1 Marked]), KEEPFILTERS(Banks[failed] = FALSE()))
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: 80c9945f-039f-53f0-96f1-9b67a6635c77
+
+	measure 'Peer Median CET1 After Securities Losses % by Quarter' =
+			CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_CET1 Marked])), [_CET1 Marked]), REMOVEFILTERS(Banks), Banks[failed] = FALSE())
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: 20487727-4c9f-5bb6-9150-f34ad3444f37
+
+	measure 'Bank CET1 After Securities Losses % by Quarter' =
+			IF(HASONEVALUE(Banks[cert]), [_CET1 Marked])
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: 079f83d0-5fc3-5291-afc6-dae43f77a562
+
+	measure 'Median NCO Rate %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE(CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_NCO Rate])), [_NCO Rate]), KEEPFILTERS(Banks[failed] = FALSE())), REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 07 Peer Medians
+		lineageTag: cd2cc932-a4f4-5305-9316-ddf8921ee8e1
+
+	measure 'Peer Median NCO Rate %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE(CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_NCO Rate])), [_NCO Rate]), REMOVEFILTERS(Banks), Banks[failed] = FALSE()), REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 07 Peer Medians
+		lineageTag: c96ee04f-aac9-53b0-89c6-219511e70d40
+
+	measure 'Median NCO Rate % by Quarter' =
+			CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_NCO Rate])), [_NCO Rate]), KEEPFILTERS(Banks[failed] = FALSE()))
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: e4f52625-d5d1-5df2-b5d2-26f2f3ec262b
+
+	measure 'Peer Median NCO Rate % by Quarter' =
+			CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_NCO Rate])), [_NCO Rate]), REMOVEFILTERS(Banks), Banks[failed] = FALSE())
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: 6aec1084-3baa-5ca4-8dcc-53f491f346e4
+
+	measure 'Bank NCO Rate % by Quarter' =
+			IF(HASONEVALUE(Banks[cert]), [_NCO Rate])
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: dee5511d-99cd-5a62-9062-11b7c221aaad
+
+	measure 'Median ROA %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE(CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_ROA])), [_ROA]), KEEPFILTERS(Banks[failed] = FALSE())), REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 07 Peer Medians
+		lineageTag: 3c021db6-72b5-59b7-95e0-04e2398bb420
+
+	measure 'Peer Median ROA %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE(CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_ROA])), [_ROA]), REMOVEFILTERS(Banks), Banks[failed] = FALSE()), REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 07 Peer Medians
+		lineageTag: 7727b266-c58a-553c-aa3b-8a14dc4a8cec
+
+	measure 'Median ROA % by Quarter' =
+			CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_ROA])), [_ROA]), KEEPFILTERS(Banks[failed] = FALSE()))
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: 60c769fd-a242-5bf5-bbcd-8a899ca2dccc
+
+	measure 'Peer Median ROA % by Quarter' =
+			CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_ROA])), [_ROA]), REMOVEFILTERS(Banks), Banks[failed] = FALSE())
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: eaf3d7c4-0712-57e9-aa03-2e6b1bc44a4f
+
+	measure 'Bank ROA % by Quarter' =
+			IF(HASONEVALUE(Banks[cert]), [_ROA])
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: 4f6e1b17-abfd-5455-9916-55b886da7db4
+
+	measure 'Median Efficiency %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE(CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_Efficiency])), [_Efficiency]), KEEPFILTERS(Banks[failed] = FALSE())), REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 07 Peer Medians
+		lineageTag: 0d9ccbfd-28a9-5f24-b5d3-0fb3196b8e1d
+
+	measure 'Peer Median Efficiency %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE(CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_Efficiency])), [_Efficiency]), REMOVEFILTERS(Banks), Banks[failed] = FALSE()), REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 07 Peer Medians
+		lineageTag: ca5e60c8-09e6-58c3-9a37-d4b33a0e8ec7
+
+	measure 'Median Efficiency % by Quarter' =
+			CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_Efficiency])), [_Efficiency]), KEEPFILTERS(Banks[failed] = FALSE()))
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: 2cbd816b-3ffa-597a-875a-0bc99b1dd667
+
+	measure 'Peer Median Efficiency % by Quarter' =
+			CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_Efficiency])), [_Efficiency]), REMOVEFILTERS(Banks), Banks[failed] = FALSE())
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: 2cb8f36e-9908-5796-871b-3917a91402a5
+
+	measure 'Bank Efficiency % by Quarter' =
+			IF(HASONEVALUE(Banks[cert]), [_Efficiency])
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: a17ba45c-b925-569d-acfc-cdad711d5dde
+
+	measure 'Median Noncurrent Loans %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE(CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_Noncurrent Rate])), [_Noncurrent Rate]), KEEPFILTERS(Banks[failed] = FALSE())), REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 07 Peer Medians
+		lineageTag: d02e5dd2-4888-541c-be74-3bec0528c873
+
+	measure 'Peer Median Noncurrent Loans %' =
+			VAR q = [Selected Quarter]
+			RETURN CALCULATE(CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_Noncurrent Rate])), [_Noncurrent Rate]), REMOVEFILTERS(Banks), Banks[failed] = FALSE()), REMOVEFILTERS(Quarters), Quarters[quarter_end] = q)
+		formatString: 0.00
+		displayFolder: 07 Peer Medians
+		lineageTag: 7ea9aa96-c95e-5a13-84e0-ed0ce07db95a
+
+	measure 'Median Noncurrent Loans % by Quarter' =
+			CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_Noncurrent Rate])), [_Noncurrent Rate]), KEEPFILTERS(Banks[failed] = FALSE()))
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: f4bc680a-a611-575d-9417-de4904ea8207
+
+	measure 'Peer Median Noncurrent Loans % by Quarter' =
+			CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([_Noncurrent Rate])), [_Noncurrent Rate]), REMOVEFILTERS(Banks), Banks[failed] = FALSE())
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: eb712914-1dc7-574e-a776-bfebf513c00a
+
+	measure 'Bank Noncurrent Loans % by Quarter' =
+			IF(HASONEVALUE(Banks[cert]), [_Noncurrent Rate])
+		formatString: 0.00
+		displayFolder: 12 Chart Helpers
+		lineageTag: e78b6340-721f-5625-8813-f40ac60db127
+
+	measure 'Deposit Beta (Hikes)' =
+			VAR c0 = CALCULATE([_Deposit Cost], REMOVEFILTERS(Quarters), Quarters[quarter_end] = DATE(2021, 12, 31))
+			VAR c1 = CALCULATE([_Deposit Cost], REMOVEFILTERS(Quarters), Quarters[quarter_end] = DATE(2024, 6, 30))
+			VAR f0 = CALCULATE([_Fed Funds], REMOVEFILTERS(Quarters), Quarters[quarter_end] = DATE(2021, 12, 31))
+			VAR f1 = CALCULATE([_Fed Funds], REMOVEFILTERS(Quarters), Quarters[quarter_end] = DATE(2024, 6, 30))
+			RETURN IF(HASONEVALUE(Banks[cert]) && NOT ISBLANK(c0) && NOT ISBLANK(c1), DIVIDE(c1 - c0, f1 - f0))
+		formatString: 0.00
+		displayFolder: 05 Rate Sensitivity
+		lineageTag: c7a7b66b-b0ca-55dc-be29-38f1e1ea7c45
+
+	measure 'Deposit Beta (Cuts)' =
+			VAR c0 = CALCULATE([_Deposit Cost], REMOVEFILTERS(Quarters), Quarters[quarter_end] = DATE(2024, 6, 30))
+			VAR c1 = CALCULATE([_Deposit Cost], REMOVEFILTERS(Quarters), Quarters[quarter_end] = DATE(2026, 6, 30))
+			VAR f0 = CALCULATE([_Fed Funds], REMOVEFILTERS(Quarters), Quarters[quarter_end] = DATE(2024, 6, 30))
+			VAR f1 = CALCULATE([_Fed Funds], REMOVEFILTERS(Quarters), Quarters[quarter_end] = DATE(2026, 6, 30))
+			RETURN IF(HASONEVALUE(Banks[cert]) && NOT ISBLANK(c0) && NOT ISBLANK(c1), DIVIDE(c1 - c0, f1 - f0))
+		formatString: 0.00
+		displayFolder: 05 Rate Sensitivity
+		lineageTag: e4d2b901-df90-54b7-9e62-55be18a78fb9
+
+	measure 'Asset Yield Beta' =
+			VAR c0 = CALCULATE([_Asset Yield], REMOVEFILTERS(Quarters), Quarters[quarter_end] = DATE(2021, 12, 31))
+			VAR c1 = CALCULATE([_Asset Yield], REMOVEFILTERS(Quarters), Quarters[quarter_end] = DATE(2024, 6, 30))
+			VAR f0 = CALCULATE([_Fed Funds], REMOVEFILTERS(Quarters), Quarters[quarter_end] = DATE(2021, 12, 31))
+			VAR f1 = CALCULATE([_Fed Funds], REMOVEFILTERS(Quarters), Quarters[quarter_end] = DATE(2024, 6, 30))
+			RETURN IF(HASONEVALUE(Banks[cert]) && NOT ISBLANK(c0) && NOT ISBLANK(c1), DIVIDE(c1 - c0, f1 - f0))
+		formatString: 0.00
+		displayFolder: 05 Rate Sensitivity
+		lineageTag: 707e15f2-fea8-5533-89cd-f994e991c94b
+
+	measure 'Funding Cost Beta' =
+			VAR c0 = CALCULATE([_Cost of Funds], REMOVEFILTERS(Quarters), Quarters[quarter_end] = DATE(2021, 12, 31))
+			VAR c1 = CALCULATE([_Cost of Funds], REMOVEFILTERS(Quarters), Quarters[quarter_end] = DATE(2024, 6, 30))
+			VAR f0 = CALCULATE([_Fed Funds], REMOVEFILTERS(Quarters), Quarters[quarter_end] = DATE(2021, 12, 31))
+			VAR f1 = CALCULATE([_Fed Funds], REMOVEFILTERS(Quarters), Quarters[quarter_end] = DATE(2024, 6, 30))
+			RETURN IF(HASONEVALUE(Banks[cert]) && NOT ISBLANK(c0) && NOT ISBLANK(c1), DIVIDE(c1 - c0, f1 - f0))
+		formatString: 0.00
+		displayFolder: 05 Rate Sensitivity
+		lineageTag: 45c3e622-40eb-5aff-a731-62b399754bec
+
+	measure 'NIM Change per +100bp' =
+			[Asset Yield Beta] - [Funding Cost Beta]
+		formatString: +0.00;-0.00;0.00
+		displayFolder: 05 Rate Sensitivity
+		lineageTag: fce6ab98-c5f4-539a-96e6-8afb2757d56f
+
+	measure 'NII Change per +100bp $M' =
+			VAR s = [NIM Change per +100bp]
+			RETURN IF(NOT ISBLANK(s), s / 100 * CALCULATE(SUM(Quarterly[earning_assets]), REMOVEFILTERS(Quarters), Quarters[quarter_end] = DATE(2026, 6, 30)))
+		formatString: +#,0;-#,0;0
+		displayFolder: 05 Rate Sensitivity
+		lineageTag: e12bd5de-c242-571e-bcd9-1e108cf5edca
+
+	measure 'Loans / Deposits at Q4 2021 %' =
+			IF(HASONEVALUE(Banks[cert]), CALCULATE([_Loan to Deposit], REMOVEFILTERS(Quarters), Quarters[quarter_end] = DATE(2021, 12, 31)))
+		formatString: 0.0
+		displayFolder: 05 Rate Sensitivity
+		lineageTag: 069929a1-638c-5444-9528-bfbd09456e14
+
+	measure 'Median Deposit Beta (Hikes)' =
+			CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([Deposit Beta (Hikes)])), [Deposit Beta (Hikes)]), KEEPFILTERS(Banks[failed] = FALSE()))
+		formatString: 0.00
+		displayFolder: 05 Rate Sensitivity
+		lineageTag: d3329f23-70f4-5cfc-832b-d90a93fadca4
+
+	measure 'Median Deposit Beta (Cuts)' =
+			CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([Deposit Beta (Cuts)])), [Deposit Beta (Cuts)]), KEEPFILTERS(Banks[failed] = FALSE()))
+		formatString: 0.00
+		displayFolder: 05 Rate Sensitivity
+		lineageTag: 977fd9ba-61f4-555e-8945-8ff3d1e9cd5a
+
+	measure 'Median NIM Change per +100bp' =
+			CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([NIM Change per +100bp])), [NIM Change per +100bp]), KEEPFILTERS(Banks[failed] = FALSE()))
+		formatString: 0.00
+		displayFolder: 05 Rate Sensitivity
+		lineageTag: 6450f179-0734-5f25-bcd1-3485a543cd81
+
+	measure 'Banks Losing Margin as Rates Rise' =
+			COUNTROWS(FILTER(CALCULATETABLE(VALUES(Banks[cert]), KEEPFILTERS(Banks[failed] = FALSE())), [NIM Change per +100bp] < 0)) + 0
+		formatString: 0
+		displayFolder: 05 Rate Sensitivity
+		lineageTag: 890a34c4-ebb2-56d2-803f-cf995261e591
+
+	measure 'Flag Uninsured > 60%' =
+			IF(HASONEVALUE(Banks[cert]) && NOT ISBLANK([Uninsured Deposits %]), IF([Uninsured Deposits %] > 60, 1, 0))
+		formatString: 0
+		displayFolder: 06 Risk Screen
+		lineageTag: eaca04dd-4969-50f0-a4d1-34a277ab3da3
+
+	measure 'Flag Marked CET1 < 8%' =
+			IF(HASONEVALUE(Banks[cert]) && NOT ISBLANK([CET1 After Securities Losses %]), IF([CET1 After Securities Losses %] < 8, 1, 0))
+		formatString: 0
+		displayFolder: 06 Risk Screen
+		lineageTag: afbf7749-44eb-571a-a2e1-8fa470f4609d
+
+	measure 'Flag CRE > 300%' =
+			IF(HASONEVALUE(Banks[cert]) && NOT ISBLANK([CRE / Capital %]), IF([CRE / Capital %] > 300, 1, 0))
+		formatString: 0
+		displayFolder: 06 Risk Screen
+		lineageTag: da054d96-2855-5b47-b124-4da96f7bc81c
+
+	measure 'Flag Construction > 100%' =
+			IF(HASONEVALUE(Banks[cert]) && NOT ISBLANK([Construction / Capital %]), IF([Construction / Capital %] > 100, 1, 0))
+		formatString: 0
+		displayFolder: 06 Risk Screen
+		lineageTag: f57d0fa2-d2d3-5fa9-b66c-f79c887ae3a9
+
+	measure 'Flag Loans > Deposits' =
+			IF(HASONEVALUE(Banks[cert]) && NOT ISBLANK([Loans / Deposits %]), IF([Loans / Deposits %] > 100, 1, 0))
+		formatString: 0
+		displayFolder: 06 Risk Screen
+		lineageTag: 76377ed3-185d-50af-9d30-4de43abe750e
+
+	measure 'Flag Liquidity < 50%' =
+			IF(HASONEVALUE(Banks[cert]) && NOT ISBLANK([Liquidity / Uninsured %]), IF([Liquidity / Uninsured %] < 50, 1, 0))
+		formatString: 0
+		displayFolder: 06 Risk Screen
+		lineageTag: c6027507-eaa5-5264-b263-76d32d37b698
+
+	measure 'Flag NCO > 0.5%' =
+			IF(HASONEVALUE(Banks[cert]) && NOT ISBLANK([NCO Rate %]), IF([NCO Rate %] > 0.5, 1, 0))
+		formatString: 0
+		displayFolder: 06 Risk Screen
+		lineageTag: d772b42b-65af-53fd-8937-561b3cfede12
+
+	measure 'Risk Flags' =
+			IF(HASONEVALUE(Banks[cert]) && NOT ISBLANK([NIM %]), [Flag Uninsured > 60%] + [Flag Marked CET1 < 8%] + [Flag CRE > 300%] + [Flag Construction > 100%] + [Flag Loans > Deposits] + [Flag Liquidity < 50%] + [Flag NCO > 0.5%])
+		formatString: 0
+		displayFolder: 06 Risk Screen
+		lineageTag: a30da95f-e4eb-5906-8d73-102eeb4599f5
+
+	measure 'Total Risk Flags' =
+			SUMX(CALCULATETABLE(VALUES(Banks[cert]), KEEPFILTERS(Banks[failed] = FALSE())), [Risk Flags]) + 0
+		formatString: 0
+		displayFolder: 06 Risk Screen
+		lineageTag: acb9488d-4ca8-5d0e-ac48-d47a8ff4f2ed
+
+	measure 'Banks With 2+ Flags' =
+			COUNTROWS(FILTER(CALCULATETABLE(VALUES(Banks[cert]), KEEPFILTERS(Banks[failed] = FALSE())), [Risk Flags] >= 2)) + 0
+		formatString: 0
+		displayFolder: 06 Risk Screen
+		lineageTag: a1bcb650-d736-5008-ba12-67c2788f3abb
+
+	measure 'Banks With No Flags' =
+			COUNTROWS(FILTER(CALCULATETABLE(VALUES(Banks[cert]), KEEPFILTERS(Banks[failed] = FALSE())), [Risk Flags] = 0)) + 0
+		formatString: 0
+		displayFolder: 06 Risk Screen
+		lineageTag: 4435cb03-baa1-58d4-82ce-4a4114cace4c
+
+	measure 'Banks Raising Flag' =
+			SWITCH(SELECTEDVALUE(Flags[flag]),
+			    "Uninsured deposits > 60%", COUNTROWS(FILTER(CALCULATETABLE(VALUES(Banks[cert]), KEEPFILTERS(Banks[failed] = FALSE())), [Flag Uninsured > 60%] = 1)) + 0,
+			    "CET1 after securities losses < 8%", COUNTROWS(FILTER(CALCULATETABLE(VALUES(Banks[cert]), KEEPFILTERS(Banks[failed] = FALSE())), [Flag Marked CET1 < 8%] = 1)) + 0,
+			    "CRE > 300% of capital", COUNTROWS(FILTER(CALCULATETABLE(VALUES(Banks[cert]), KEEPFILTERS(Banks[failed] = FALSE())), [Flag CRE > 300%] = 1)) + 0,
+			    "Construction > 100% of capital", COUNTROWS(FILTER(CALCULATETABLE(VALUES(Banks[cert]), KEEPFILTERS(Banks[failed] = FALSE())), [Flag Construction > 100%] = 1)) + 0,
+			    "Loans > deposits", COUNTROWS(FILTER(CALCULATETABLE(VALUES(Banks[cert]), KEEPFILTERS(Banks[failed] = FALSE())), [Flag Loans > Deposits] = 1)) + 0,
+			    "Liquidity < 50% of uninsured deposits", COUNTROWS(FILTER(CALCULATETABLE(VALUES(Banks[cert]), KEEPFILTERS(Banks[failed] = FALSE())), [Flag Liquidity < 50%] = 1)) + 0,
+			    "Net charge-offs > 0.5%", COUNTROWS(FILTER(CALCULATETABLE(VALUES(Banks[cert]), KEEPFILTERS(Banks[failed] = FALSE())), [Flag NCO > 0.5%] = 1)) + 0)
+		formatString: 0
+		displayFolder: 06 Risk Screen
+		lineageTag: bc42970f-e663-5b54-83f4-c244237512cb
+
+	measure 'Banks CRE Over 300%' =
+			COUNTROWS(FILTER(CALCULATETABLE(VALUES(Banks[cert]), KEEPFILTERS(Banks[failed] = FALSE())), [CRE / Capital %] > 300)) + 0
+		formatString: 0
+		displayFolder: 06 Risk Screen
+		lineageTag: 77d2a47a-f9a3-5a54-8df6-808935e65ef9
+
+	measure 'Banks CRE Over 300% by Quarter' =
+			COUNTROWS(FILTER(CALCULATETABLE(VALUES(Banks[cert]), KEEPFILTERS(Banks[failed] = FALSE())), [_CRE Concentration] > 300)) + 0
+		formatString: 0
+		displayFolder: 12 Chart Helpers
+		lineageTag: e5f4ac33-9b12-5748-9087-f4b33140068e
+
+	measure 'Uninsured at Q4 2022 %' =
+			IF(HASONEVALUE(Banks[cert]), CALCULATE([_Uninsured Share], REMOVEFILTERS(Quarters), Quarters[quarter_end] = DATE(2022, 12, 31)))
+		formatString: 0.0
+		displayFolder: 08 Lessons from 2023
+		lineageTag: 15ee1db0-342d-580c-ad80-5f038769f274
+
+	measure 'Marked CET1 at Q4 2022 %' =
+			IF(HASONEVALUE(Banks[cert]), CALCULATE([_CET1 Marked], REMOVEFILTERS(Quarters), Quarters[quarter_end] = DATE(2022, 12, 31)))
+		formatString: 0.0
+		displayFolder: 08 Lessons from 2023
+		lineageTag: 835298d9-eafc-536e-8934-e678acc0369d
+
+	measure 'Unrealized Loss / Tier 1 at Q4 2022 %' =
+			IF(HASONEVALUE(Banks[cert]), CALCULATE([_Unrealized to Tier1], REMOVEFILTERS(Quarters), Quarters[quarter_end] = DATE(2022, 12, 31)))
+		formatString: 0.0
+		displayFolder: 08 Lessons from 2023
+		lineageTag: 75f125a8-fe90-50d8-b363-bc8c5e2c5c2a
+
+	measure 'Deposit Growth 2019-22 %' =
+			VAR d0 = CALCULATE(SUM(Quarterly[deposits]), REMOVEFILTERS(Quarters), Quarters[quarter_end] = DATE(2019, 12, 31))
+			VAR d1 = CALCULATE(SUM(Quarterly[deposits]), REMOVEFILTERS(Quarters), Quarters[quarter_end] = DATE(2022, 12, 31))
+			RETURN IF(HASONEVALUE(Banks[cert]) && d0 > 0, (d1 / d0 - 1) * 100)
+		formatString: 0.0
+		displayFolder: 08 Lessons from 2023
+		lineageTag: fa82bf4b-7f2a-5324-97b3-5ceeaee0ed6a
+
+	measure 'Early-Warning Flags' =
+			VAR u = [Uninsured at Q4 2022 %]
+			VAR c = [Marked CET1 at Q4 2022 %]
+			VAR g = [Deposit Growth 2019-22 %]
+			RETURN IF(NOT ISBLANK(u), IF(u > 60, 1, 0) + IF(c < 8, 1, 0) + IF(g > 90, 1, 0))
+		formatString: 0
+		displayFolder: 08 Lessons from 2023
+		lineageTag: e7256cbb-ad6e-5af4-ba46-4d23a60f995a
+
+	measure 'Failed Banks Raising All 3' =
+			COUNTROWS(FILTER(CALCULATETABLE(VALUES(Banks[cert]), REMOVEFILTERS(Banks), Banks[failed] = TRUE()), [Early-Warning Flags] = 3)) + 0
+		formatString: 0
+		displayFolder: 08 Lessons from 2023
+		lineageTag: 2e6e6221-2ab4-5565-bcbb-50a46fdef75a
+
+	measure 'Survivors Raising All 3' =
+			COUNTROWS(FILTER(CALCULATETABLE(VALUES(Banks[cert]), REMOVEFILTERS(Banks), Banks[failed] = FALSE()), [Early-Warning Flags] = 3)) + 0
+		formatString: 0
+		displayFolder: 08 Lessons from 2023
+		lineageTag: 78c5682c-e6e5-517e-99b0-9469df960885
+
+	measure 'Survivors Raising 2 Flags' =
+			COUNTROWS(FILTER(CALCULATETABLE(VALUES(Banks[cert]), REMOVEFILTERS(Banks), Banks[failed] = FALSE()), [Early-Warning Flags] = 2)) + 0
+		formatString: 0
+		displayFolder: 08 Lessons from 2023
+		lineageTag: bfa3d4c0-5cc4-597d-90eb-6d29051a4bf8
+
+	measure 'Survivor Median Uninsured at Q4 2022 %' =
+			CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([Uninsured at Q4 2022 %])), [Uninsured at Q4 2022 %]), REMOVEFILTERS(Banks), Banks[failed] = FALSE())
+		formatString: 0.0
+		displayFolder: 08 Lessons from 2023
+		lineageTag: 9749869f-bde1-5477-87ed-e7964a046c52
+
+	measure 'Survivor Median Marked CET1 at Q4 2022 %' =
+			CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([Marked CET1 at Q4 2022 %])), [Marked CET1 at Q4 2022 %]), REMOVEFILTERS(Banks), Banks[failed] = FALSE())
+		formatString: 0.0
+		displayFolder: 08 Lessons from 2023
+		lineageTag: c3cd07b0-74aa-58c1-9690-8610fadfc9d6
+
+	measure 'Survivor Median Deposit Growth 2019-22 %' =
+			CALCULATE(MEDIANX(FILTER(VALUES(Banks[cert]), NOT ISBLANK([Deposit Growth 2019-22 %])), [Deposit Growth 2019-22 %]), REMOVEFILTERS(Banks), Banks[failed] = FALSE())
+		formatString: 0.0
+		displayFolder: 08 Lessons from 2023
+		lineageTag: 232d8fbb-d8b5-5780-87ca-588266a0c1f3
+
+	measure 'Metric Value' =
+			SWITCH(SELECTEDVALUE(Metrics[metric]),
+			    "Net interest margin (%)", [NIM %],
+			    "Cost of deposits (%)", [Cost of Deposits %],
+			    "Uninsured deposits (%)", [Uninsured Deposits %],
+			    "Loans / deposits (%)", [Loans / Deposits %],
+			    "CRE / (Tier 1 + reserves) (%)", [CRE / Capital %],
+			    "Unrealized securities loss / Tier 1 (%)", [Unrealized Loss / Tier 1 %],
+			    "CET1 ratio (%)", [CET1 Ratio %],
+			    "CET1 after securities losses (%)", [CET1 After Securities Losses %],
+			    "Liquidity / uninsured deposits (%)", [Liquidity / Uninsured %],
+			    "Return on assets (%)", [ROA %],
+			    "Efficiency ratio (%)", [Efficiency %],
+			    "Net charge-offs / loans (%)", [NCO Rate %])
+		formatString: 0.00
+		displayFolder: 10 Scorecard
+		lineageTag: 262d0bc1-3a27-5bfc-9014-9fa754a080b4
+
+	measure 'Metric Peer Median' =
+			SWITCH(SELECTEDVALUE(Metrics[metric]),
+			    "Net interest margin (%)", [Peer Median NIM %],
+			    "Cost of deposits (%)", [Peer Median Cost of Deposits %],
+			    "Uninsured deposits (%)", [Peer Median Uninsured Deposits %],
+			    "Loans / deposits (%)", [Peer Median Loans / Deposits %],
+			    "CRE / (Tier 1 + reserves) (%)", [Peer Median CRE / Capital %],
+			    "Unrealized securities loss / Tier 1 (%)", [Peer Median Unrealized Loss / Tier 1 %],
+			    "CET1 ratio (%)", [Peer Median CET1 Ratio %],
+			    "CET1 after securities losses (%)", [Peer Median CET1 After Securities Losses %],
+			    "Liquidity / uninsured deposits (%)", [Peer Median Liquidity / Uninsured %],
+			    "Return on assets (%)", [Peer Median ROA %],
+			    "Efficiency ratio (%)", [Peer Median Efficiency %],
+			    "Net charge-offs / loans (%)", [Peer Median NCO Rate %])
+		formatString: 0.00
+		displayFolder: 10 Scorecard
+		lineageTag: 9d372172-416d-5f25-8fff-08265181f1c1
+
+	measure 'Metric Rank' =
+			VAR v = [Metric Value]
+			VAR lower = SELECTEDVALUE(Metrics[lower_is_better])
+			RETURN IF(NOT ISBLANK(v), CALCULATE(IF(lower, COUNTROWS(FILTER(VALUES(Banks[cert]), [Metric Value] < v)),
+			    COUNTROWS(FILTER(VALUES(Banks[cert]), [Metric Value] > v))), REMOVEFILTERS(Banks), Banks[failed] = FALSE()) + 1)
+		formatString: 0
+		displayFolder: 10 Scorecard
+		lineageTag: 8a1ec7b2-cbf7-5eec-abab-781b31d68249
+
+	measure 'Rows Included' =
+			CALCULATE(COUNTROWS(Quarterly), KEEPFILTERS(Quarterly[governance_label] = "Include"))
+		formatString: 0
+		displayFolder: 11 Governance & QA
+		lineageTag: e1908207-654a-59f8-a51c-3c88af83e308
+
+	measure 'Rows Needing Review' =
+			CALCULATE(COUNTROWS(Quarterly), KEEPFILTERS(Quarterly[needs_review] = TRUE())) + 0
+		formatString: 0
+		displayFolder: 11 Governance & QA
+		lineageTag: 765f4aba-1ce8-508a-8f1b-820aca3916e8
+
+	measure 'Fact Rows' =
+			COUNTROWS(Quarterly)
+		formatString: #,0
+		displayFolder: 11 Governance & QA
+		lineageTag: 0c1dc1fa-24ce-5003-ae2c-9c51b526d8e8
+
+	measure 'Python Value' =
+			SUM(Reconciliation[python_value])
+		formatString: 0.000
+		displayFolder: 11 Governance & QA
+		lineageTag: b2cd2bbc-b9ec-5d13-b29e-b0046bcc12e0
+
+	measure 'DAX Value' =
+			SWITCH(SELECTEDVALUE(Reconciliation[check_id]),
+			    "banks", CALCULATE([Banks], Quarters[quarter_end] = DATE(2026, 6, 30)),
+			    "assets_t", CALCULATE([Total Assets $B], Quarters[quarter_end] = DATE(2026, 6, 30)) / 1000,
+			    "nim_median", CALCULATE([Median NIM %], Quarters[quarter_end] = DATE(2026, 6, 30)),
+			    "depcost_median", CALCULATE([Median Cost of Deposits %], Quarters[quarter_end] = DATE(2026, 6, 30)),
+			    "uninsured_median", CALCULATE([Median Uninsured Deposits %], Quarters[quarter_end] = DATE(2026, 6, 30)),
+			    "cet1_median", CALCULATE([Median CET1 Ratio %], Quarters[quarter_end] = DATE(2026, 6, 30)),
+			    "beta_up", [Median Deposit Beta (Hikes)],
+			    "beta_down", [Median Deposit Beta (Cuts)],
+			    "nim100_median", [Median NIM Change per +100bp],
+			    "liab_sensitive", [Banks Losing Margin as Rates Rise],
+			    "flags_total", CALCULATE([Total Risk Flags], Quarters[quarter_end] = DATE(2026, 6, 30)),
+			    "flags_two_plus", CALCULATE([Banks With 2+ Flags], Quarters[quarter_end] = DATE(2026, 6, 30)),
+			    "flags_zero", CALCULATE([Banks With No Flags], Quarters[quarter_end] = DATE(2026, 6, 30)),
+			    "cre_over_300", CALCULATE([Banks CRE Over 300%], Quarters[quarter_end] = DATE(2026, 6, 30)),
+			    "svb_uninsured", CALCULATE([_Uninsured Share], Banks[cert] = 24735, Quarters[quarter_end] = DATE(2022, 12, 31)),
+			    "frc_marked", CALCULATE([_CET1 Marked], Banks[cert] = 59017, Quarters[quarter_end] = DATE(2022, 12, 31)),
+			    "ew_failed", [Failed Banks Raising All 3],
+			    "ew_survivors", [Survivors Raising All 3],
+			    "flagstar_nim100", CALCULATE([NIM Change per +100bp], Banks[cert] = 32541),
+			    "mt_depcost_peak", CALCULATE([_Deposit Cost], Banks[cert] = 588, Quarters[quarter_end] = DATE(2024, 6, 30)))
+		formatString: 0.000
+		displayFolder: 11 Governance & QA
+		lineageTag: 49836da4-22af-5e6f-b685-3df2876b9854
+
+	measure Difference =
+			IF(HASONEVALUE(Reconciliation[check_id]), [DAX Value] - [Python Value])
+		formatString: 0.000
+		displayFolder: 11 Governance & QA
+		lineageTag: 189325a1-d97b-5ebf-99f3-65ecfdc601b2
+
+	measure 'Check Status' =
+			IF(HASONEVALUE(Reconciliation[check_id]), IF(ABS([Difference]) <= 0.01, "PASS", "REVIEW"))
+		displayFolder: 11 Governance & QA
+		lineageTag: 8c295299-940f-52fb-8bde-c2c0d12f8484
+
+	measure 'Checks Passed' =
+			SUMX(VALUES(Reconciliation[check_id]), IF(ABS([DAX Value] - [Python Value]) <= 0.01, 1, 0))
+		formatString: 0
+		displayFolder: 11 Governance & QA
+		lineageTag: a99e3bbb-d474-5d6e-a751-787adcba8748
+
+	measure 'Reconciliation Status' =
+			IF([Checks Passed] = COUNTROWS(Reconciliation), "PASS (" & [Checks Passed] & " of " & COUNTROWS(Reconciliation) & ")", "REVIEW")
+		displayFolder: 11 Governance & QA
+		lineageTag: ee83e53e-4297-51a5-9e3d-dd5cff8164a9
+
+	measure 'Finding Value' =
+			SUM(Findings[value])
+		formatString: 0.00
+		displayFolder: 11 Governance & QA
+		lineageTag: 6b8e317d-43cf-5ae3-a1f1-7bb1f5eef2d9
+
+	measure 'Finding p-value' =
+			SUM(Findings[p_value])
+		formatString: 0.000
+		displayFolder: 11 Governance & QA
+		lineageTag: f3d4272e-1bb6-57c0-8ab0-75cfdc07d6d5
+
+	column Placeholder
+		dataType: string
+		isHidden
+		lineageTag: 07e57783-fa50-5f85-9cb2-4582b5a2a42e
+		summarizeBy: none
+		sourceColumn: Placeholder
+
+	partition _Measures = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows({}, type table [Placeholder = text])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table

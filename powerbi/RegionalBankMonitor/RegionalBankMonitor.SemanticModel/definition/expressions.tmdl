@@ -1,0 +1,66 @@
+expression DataFolder = "C:\Users\ASUS\Downloads\regional_bank_powerbi\data\" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 81ac5381-641a-544e-bdee-032043cc0150
+	queryGroup: '1 Parameters'
+
+	annotation PBI_ResultType = Text
+
+expression Quarterly_Source =
+		let
+		    Source = Csv.Document(File.Contents(DataFolder & "quarterly.csv"), [Delimiter = ",", Columns = 42, Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+		    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+		    Blanks = Table.TransformColumns(Promoted, {}, each if _ = "" then null else _)
+		in
+		    Blanks
+	lineageTag: e879df61-d5d4-5167-a483-14f85d5432c8
+	queryGroup: '2 Source (raw)'
+
+	annotation PBI_ResultType = Table
+
+expression Banks_Source =
+		let
+		    Source = Csv.Document(File.Contents(DataFolder & "banks.csv"), [Delimiter = ",", Columns = 8, Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+		    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+		    Blanks = Table.TransformColumns(Promoted, {}, each if _ = "" then null else _)
+		in
+		    Blanks
+	lineageTag: 931dcbe3-5b63-58ce-875e-62b34c821e49
+	queryGroup: '2 Source (raw)'
+
+	annotation PBI_ResultType = Table
+
+expression Rates_Source =
+		let
+		    Source = Csv.Document(File.Contents(DataFolder & "rates.csv"), [Delimiter = ",", Columns = 4, Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+		    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+		    Blanks = Table.TransformColumns(Promoted, {}, each if _ = "" then null else _)
+		in
+		    Blanks
+	lineageTag: e130bab8-4240-5e8c-877e-af96ad74d8a6
+	queryGroup: '2 Source (raw)'
+
+	annotation PBI_ResultType = Table
+
+expression Quarterly_Staging =
+		let
+		    Source = Quarterly_Source,
+		    Typed = Table.TransformColumnTypes(Source, {{"cert", Int64.Type}, {"quarter_end", type date}} & List.Transform(List.Skip(Table.ColumnNames(Source), 2), each {_, type number}), "en-US"),
+		    Kept = Table.SelectRows(Typed, each [cert] <> null and [quarter_end] <> null and [assets] <> null)
+		in
+		    Kept
+	lineageTag: 4f1fab95-0bc1-5003-aa35-b18c61b92929
+	queryGroup: '3 Staging'
+
+	annotation PBI_ResultType = Table
+
+expression Banks_Staging =
+		let
+		    Source = Banks_Source,
+		    Typed = Table.TransformColumnTypes(Source, {{"cert", Int64.Type}, {"bank", type text}, {"state", type text}, {"holding_company", type text},
+		        {"failed", type logical}, {"size_band", type text}, {"size_order", Int64.Type}, {"bank_order", Int64.Type}}, "en-US")
+		in
+		    Typed
+	lineageTag: 569dd597-d41a-51ec-a6a2-fc2380802fd1
+	queryGroup: '3 Staging'
+
+	annotation PBI_ResultType = Table
+

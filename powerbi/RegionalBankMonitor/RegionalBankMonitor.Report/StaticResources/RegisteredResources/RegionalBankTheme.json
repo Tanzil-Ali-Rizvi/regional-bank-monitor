@@ -1,0 +1,328 @@
+{
+  "name": "Regional Bank Monitor Light Cards",
+  "dataColors": [
+    "#2F6BFF",
+    "#22B8E6",
+    "#1FC796",
+    "#F2557A",
+    "#FF9F43",
+    "#7B61FF",
+    "#A3B1C6",
+    "#5B8DEF",
+    "#7FE0C4",
+    "#FFC46B",
+    "#F78CA8",
+    "#A99BFF"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#24324D",
+  "tableAccent": "#2F6BFF",
+  "good": "#1FC796",
+  "bad": "#F2557A",
+  "neutral": "#FF9F43",
+  "maximum": "#F2557A",
+  "center": "#FF9F43",
+  "minimum": "#FFFFFF",
+  "textClasses": {
+    "title": {
+      "fontFace": "Segoe UI Semibold",
+      "color": "#24324D",
+      "fontSize": 11
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "color": "#7D8BA3"
+    },
+    "callout": {
+      "fontFace": "Segoe UI Semibold",
+      "color": "#24324D"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#E3E9F2"
+              }
+            },
+            "radius": 14
+          }
+        ],
+        "dropShadow": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#4A6FA5"
+              }
+            },
+            "position": "Outer",
+            "preset": "Custom",
+            "shadowBlur": 22,
+            "shadowDistance": 7,
+            "angle": 90,
+            "shadowSpread": 1,
+            "transparency": 72
+          }
+        ],
+        "visualTooltip": [
+          {
+            "show": true,
+            "type": "Default",
+            "titleFontColor": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "valueFontColor": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "background": {
+              "solid": {
+                "color": "#24324D"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "visualHeader": [
+          {
+            "show": true,
+            "foreground": {
+              "solid": {
+                "color": "#7D8BA3"
+              }
+            }
+          }
+        ],
+        "title": [
+          {
+            "show": true,
+            "fontColor": {
+              "solid": {
+                "color": "#24324D"
+              }
+            },
+            "fontSize": 11,
+            "bold": true
+          }
+        ],
+        "categoryAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#7D8BA3"
+              }
+            },
+            "gridlineShow": false
+          }
+        ],
+        "valueAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#7D8BA3"
+              }
+            },
+            "gridlineColor": {
+              "solid": {
+                "color": "#E3E9F2"
+              }
+            },
+            "gridlineStyle": "dotted"
+          }
+        ],
+        "legend": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#7D8BA3"
+              }
+            },
+            "fontSize": 9
+          }
+        ]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [
+          {
+            "color": {
+              "solid": {
+                "color": "#EEF2F8"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "outspace": [
+          {
+            "color": {
+              "solid": {
+                "color": "#EEF2F8"
+              }
+            },
+            "transparency": 0
+          }
+        ]
+      }
+    },
+    "tableEx": {
+      "*": {
+        "columnHeaders": [
+          {
+            "fontColor": {
+              "solid": {
+                "color": "#7D8BA3"
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": "#F5F8FC"
+              }
+            },
+            "bold": true
+          }
+        ],
+        "values": [
+          {
+            "fontColor": {
+              "solid": {
+                "color": "#24324D"
+              }
+            },
+            "backColorPrimary": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "backColorSecondary": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            }
+          }
+        ],
+        "grid": [
+          {
+            "gridHorizontal": true,
+            "gridHorizontalColor": {
+              "solid": {
+                "color": "#E3E9F2"
+              }
+            },
+            "gridVertical": false
+          }
+        ]
+      }
+    },
+    "pivotTable": {
+      "*": {
+        "columnHeaders": [
+          {
+            "fontColor": {
+              "solid": {
+                "color": "#7D8BA3"
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": "#F5F8FC"
+              }
+            },
+            "bold": true
+          }
+        ],
+        "rowHeaders": [
+          {
+            "fontColor": {
+              "solid": {
+                "color": "#24324D"
+              }
+            },
+            "bold": true
+          }
+        ]
+      }
+    },
+    "card": {
+      "*": {
+        "labels": [
+          {
+            "fontFamily": "Segoe UI Semibold"
+          }
+        ]
+      }
+    },
+    "lineChart": {
+      "*": {
+        "lineStyles": [
+          {
+            "lineChartType": "smooth",
+            "strokeWidth": 3,
+            "showMarker": false
+          }
+        ]
+      }
+    },
+    "lineClusteredColumnComboChart": {
+      "*": {
+        "lineStyles": [
+          {
+            "lineChartType": "smooth",
+            "strokeWidth": 3
+          }
+        ]
+      }
+    },
+    "areaChart": {
+      "*": {
+        "dataPoint": [
+          {
+            "transparency": 85
+          }
+        ],
+        "lineStyles": [
+          {
+            "lineChartType": "smooth",
+            "strokeWidth": 3,
+            "showMarker": false,
+            "areaShow": true,
+            "transparency": 70
+          }
+        ]
+      }
+    },
+    "slicer": {
+      "*": {
+        "items": [
+          {
+            "fontColor": {
+              "solid": {
+                "color": "#24324D"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

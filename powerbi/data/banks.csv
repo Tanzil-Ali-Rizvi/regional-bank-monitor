@@ -1,0 +1,105 @@
+cert,bank,state,holding_company,failed,size_band,size_order,bank_order
+14531,Amarillo National Bank,TX,Amarillo National Bcorp Inc,false,$10-20B,1,1
+22953,Amerant Bank,FL,Amerant Bcorp Inc,false,$10-20B,1,2
+20504,Ameris Bank,GA,Ameris Bcorp,false,$20-50B,2,3
+16068,Apple Bank,NY,Apple Financial Holdings Inc,false,$10-20B,1,4
+8728,Arvest Bank,AR,Arvest Bank Group Inc,false,$20-50B,2,5
+5296,Associated Bank,WI,Associated Banc-Corp,false,$50-100B,3,6
+34589,Atlantic Union Bank,VA,Atlantic Union Bankshares Corp,false,$20-50B,2,7
+35546,Axos Bank,CA,Axos Financial Inc,false,$20-50B,2,8
+4214,BOKF,OK,Bok Financial Corp,false,$50-100B,3,9
+24045,Banc of California,CA,Banc Of California Inc,false,$20-50B,2,10
+27476,BancFirst,OK,Bancfirst Corp,false,$10-20B,1,11
+110,Bank OZK,AR,,false,$20-50B,2,12
+18053,Bank of Hawaii,HI,Bank Of Hawaii Corp,false,$20-50B,2,13
+26610,Bank of Hope,CA,Hope Bcorp Inc,false,$10-20B,1,14
+58979,BankUnited,FL,Bankunited Inc,false,$20-50B,2,15
+28489,Banner Bank,WA,Banner Corp,false,$10-20B,1,16
+17798,Beacon Bank & Trust,MA,Beacon Financial Corp,false,$20-50B,2,17
+19581,Bell Bank,ND,State Bankshares Inc,false,$10-20B,1,18
+11578,Burke & Herbert,VA,Burke&Herbert Finl Services,false,$10-20B,1,19
+16450,Busey Bank,IL,First Busey Corp,false,$10-20B,1,20
+18503,Cathay Bank,CA,Cathay General Bcorp,false,$20-50B,2,21
+11241,Centennial Bank,AR,Home Bancshares Inc,false,$20-50B,2,22
+12854,Centier Bank,IN,First Bancshares Inc,false,$10-20B,1,23
+12633,Central Trust Bank,MO,Central Bancompany Inc,false,$20-50B,2,24
+57957,Citizens Bank,RI,Citizens Financial Group Inc,false,$100-250B,4,25
+21716,Citizens Business Bank,CA,Cvb Financial Corp,false,$20-50B,2,26
+28834,Columbia Bank (NJ),NJ,Columbia Bank Mhc,false,$10-20B,1,27
+17266,Columbia Bank (OR),OR,Columbia Banking System Inc,false,$50-100B,3,28
+24998,Commerce Bank,MO,Commerce Bancshares Inc,false,$20-50B,2,29
+6989,Community Bank NA,NY,Community Financial System Inc,false,$10-20B,1,30
+57919,ConnectOne Bank,NJ,Connectone Bcorp Inc,false,$10-20B,1,31
+34444,Customers Bank,PA,Customers Bcorp Inc,false,$20-50B,2,32
+6976,Dime Commercial Bank,NY,Dime Commercial Bancshares Inc,false,$10-20B,1,33
+32245,Dollar Bank,PA,Dollar Mutual Bcorp,false,$10-20B,1,34
+31628,East West Bank,CA,East West Bcorp Inc,false,$50-100B,3,35
+32773,Eastern Bank,MA,Eastern Bankshares Inc,false,$20-50B,2,36
+27237,Enterprise Bank & Trust,MO,Enterprise Finl Services Corp,false,$10-20B,1,37
+34775,EverBank,FL,Everbank Financial Corp,false,$20-50B,2,38
+1225,Farmers & Merchants Bank of Long Beach,CA,Palomar Enterprises Llc,false,$10-20B,1,39
+15019,First Bank (NC),NC,First Bcorp,false,$10-20B,1,40
+11063,First Citizens Bank,NC,First Citizens Bancshares Inc,false,$100-250B,4,41
+7468,First Commonwealth Bank,PA,First Commonwealth Finl Corp,false,$10-20B,1,42
+6600,First Financial Bank (OH),OH,First Financial Bcorp,false,$20-50B,2,43
+3066,First Financial Bank (TX),TX,First Financial Bankshares Inc,false,$10-20B,1,44
+17985,First Hawaiian Bank,HI,First Hawaiian Inc,false,$20-50B,2,45
+4977,First Horizon Bank,TN,First Horizon Corp,false,$50-100B,3,46
+1105,First Interstate Bank,MT,First Intrst Bancsystem,false,$20-50B,2,47
+4365,First Merchants Bank,IN,First Merchants Corp,false,$20-50B,2,48
+5452,First National Bank of Omaha,NE,Lauritzen Corp,false,$20-50B,2,49
+7888,First National Bank of Pennsylvania,PA,F N B Corp,false,$50-100B,3,50
+59017,First Republic,CA,,true,$100-250B,4,51
+4239,First United Bank,OK,Spend Life Wisely Co Inc,false,$10-20B,1,52
+8663,FirstBank (TN),TN,Fb Financial Corp,false,$10-20B,1,53
+32541,Flagstar Bank,NY,,false,$50-100B,3,54
+5510,Frost Bank,TX,Cullen Frost Bankers Inc,false,$50-100B,3,55
+7551,Fulton Bank,PA,Fulton Financial Corp,false,$20-50B,2,56
+30788,Glacier Bank,MT,Glacier Bcorp Inc,false,$20-50B,2,57
+12441,Hancock Whitney Bank,MS,Hancock Whitney Corp,false,$20-50B,2,58
+19629,International Bank of Commerce,TX,International Bancshares Corp,false,$10-20B,1,59
+17534,KeyBank,OH,Keycorp,false,$100-250B,4,60
+58665,Live Oak Bank,NC,Live Oak Bancshares Inc,false,$10-20B,1,61
+588,M&T Bank,NY,M&T Bank Corp,false,$100-250B,4,62
+1768,Mechanics Bank,CA,2011 Tcrt,false,$20-50B,2,63
+8056,Merchants Bank of Indiana,IN,Merchants Bcorp,false,$20-50B,2,64
+4063,MidFirst Bank,OK,G Jeffrey Records Jr 2020 Family Tr,false,$20-50B,2,65
+59052,NBH Bank,CO,National Bank Holdings Corp,false,$10-20B,1,66
+7230,NBT Bank,NY,Nbt Bcorp Inc,false,$10-20B,1,67
+29209,NexBank,TX,Slhc Trust The,false,$10-20B,1,68
+57038,Nicolet National Bank,WI,Nicolet Bankshares Inc,false,$10-20B,1,69
+28178,Northwest Bank,PA,Northwest Bancshares Inc,false,$10-20B,1,70
+28359,OceanFirst Bank,NJ,Oceanfirst Financial Corp,false,$20-50B,2,71
+3832,Old National Bank,IN,Old National Bcorp,false,$50-100B,3,72
+12614,Origin Bank,LA,Origin Bcorp Inc,false,$10-20B,1,73
+6653,Park National Bank,OH,Park National Corp,false,$10-20B,1,74
+35583,Pinnacle Bank,TN,Pinnacle Finl Partners Inc,false,$100-250B,4,75
+17491,PlainsCapital Bank,TX,Diamond Hth Stock Co Gp Llc,false,$10-20B,1,76
+34967,Popular Bank,NY,Popular Inc,false,$10-20B,1,77
+16835,Prosperity Bank,TX,Prosperity Bancshares Inc,false,$20-50B,2,78
+12010,Provident Bank,NJ,Provident Finl Services Inc,false,$20-50B,2,79
+12368,Regions Bank,AL,Regions Financial Corp,false,$100-250B,4,80
+12437,Renasant Bank,MS,Renasant Corp,false,$20-50B,2,81
+9712,Rockland Trust,MA,Independent Bank Corp,false,$20-50B,2,82
+24735,SVB,CA,Svb Financial Group,true,$100-250B,4,83
+131,Seacoast National Bank,FL,Seacoast Banking Corp Of Fl,false,$20-50B,2,84
+57993,ServisFirst Bank,AL,Servisfirst Bancshares Inc,false,$10-20B,1,85
+57053,Signature,NY,,true,$100-250B,4,86
+3890,Simmons Bank,AR,Simmons First National Corp,false,$20-50B,2,87
+33555,SouthState Bank,FL,Southstate Bank Corp,false,$50-100B,3,88
+258,Stock Yards Bank,KY,Stock Yards Bcorp Inc,false,$10-20B,1,89
+4767,Sunflower Bank,TX,Firstsun Capital Bcorp,false,$10-20B,1,90
+34383,Texas Capital Bank,TX,Texas Capital Bancshares Inc,false,$20-50B,2,91
+30012,Third Federal Savings,OH,Third Fs&La Of Cleveland Mhc,false,$10-20B,1,92
+35095,TowneBank,VA,,false,$20-50B,2,93
+4988,Trustmark Bank,MS,Trustmark Corp,false,$10-20B,1,94
+8273,UMB Bank,MO,Umb Financial Corp,false,$50-100B,3,95
+22858,United Bank,VA,United Bankshares Inc,false,$20-50B,2,96
+16889,United Community Bank,SC,United Community Banks Inc,false,$20-50B,2,97
+9396,Valley National Bank,NJ,Valley National Bcorp,false,$50-100B,3,98
+17838,WSFS Bank,DE,Wsfs Financial Corp,false,$20-50B,2,99
+28088,WaFd Bank,WA,Wafd Inc,false,$20-50B,2,100
+1281,Washington Trust Bank,WA,W T B Financial Corp,false,$10-20B,1,101
+803,WesBanco Bank,WV,Wesbanco Inc,false,$20-50B,2,102
+57512,Western Alliance Bank,AZ,Western Alliance Bcorp,false,$50-100B,3,103
+2270,Zions Bank,UT,,false,$50-100B,3,104

@@ -1,0 +1,195 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "hw_v04",
+  "position": {
+    "x": 15,
+    "y": 434,
+    "z": 4000,
+    "height": 341,
+    "width": 1250,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Key rules",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "color": "#24324D",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Every card shows one quarter: the slicer quarter, or Q2 2026 when none is selected. Ratios are ratios of sums, so a group total weights by size; medians are medians of bank ratios across peers only. Betas use quarter-average Fed funds: 0.08% (Q4 2021), 5.33% (Q2 2024), 3.63% (Q2 2026).",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "color": "#24324D"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": " ",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "color": "#24324D"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Open items for the data owner (FDIC data)",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "color": "#24324D",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "1. Figures are for insured banks, not holding companies; holding-company debt and parent liquidity are not covered.",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "color": "#24324D"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "2. Office CRE is not reported separately in the call report, so CRE credit risk is measured on the whole non-owner-occupied book.",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "color": "#24324D"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "3. Deposit growth and betas include acquisitions; merger quarters are labelled Check rather than removed.",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "color": "#24324D"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E3E9F2'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

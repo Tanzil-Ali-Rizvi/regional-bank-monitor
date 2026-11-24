@@ -1,0 +1,16 @@
+group,finding,value,p_value,note,order
+Deposit beta drivers,Beta vs Loans / deposits (%),0.6234129295282469,3.3365610628503763e-12,"Spearman, 101 banks, traits at Q4 2021",1
+Deposit beta drivers,Beta vs Brokered deposits (%),0.6271682994859183,2.264818914899884e-12,"Spearman, 101 banks, traits at Q4 2021",2
+Deposit beta drivers,Beta vs Securities / assets (%),-0.5610250436808386,1.0463732442308993e-09,"Spearman, 101 banks, traits at Q4 2021",3
+Deposit beta drivers,Beta vs Uninsured deposits (%),0.08743156668608036,0.3846252471341463,"Spearman, 101 banks, traits at Q4 2021",4
+Deposit beta drivers,Beta vs CRE / (Tier 1 + reserves) (%),0.18768782760629002,0.06017623508429235,"Spearman, 101 banks, traits at Q4 2021",5
+Deposit beta drivers,Beta vs Total assets ($M),-0.05276645311589982,0.6002362115248374,"Spearman, 101 banks, traits at Q4 2021",6
+Beta by funding need,"Median beta, Low (deposit-rich) loans/deposits",0.312615820192684,,34 banks; NIM change +0.34 pts,7
+Beta by funding need,"Median beta, Middle loans/deposits",0.4424067536158612,,33 banks; NIM change +0.40 pts,8
+Beta by funding need,"Median beta, High (loan-heavy) loans/deposits",0.502118696937934,,34 banks; NIM change -0.05 pts,9
+2023 early warning,Threshold settings tested,80.0,,"uninsured 50-65%, marked CET1 7-9%, growth 70-100%",10
+2023 early warning,Settings catching all three failures,36.0,,,11
+2023 early warning,Most survivors flagged by any setting,1.0,,,12
+CRE and credit,"Median NCO rate since 2024, CRE Under 200%",0.19336640975972702,,43 banks,13
+CRE and credit,"Median NCO rate since 2024, CRE 200-300%",0.17720345159107503,,36 banks,14
+CRE and credit,"Median NCO rate since 2024, CRE Over 300%",0.12860115950390041,,22 banks,15

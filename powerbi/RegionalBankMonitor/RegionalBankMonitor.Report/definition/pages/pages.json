@@ -1,0 +1,15 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.1.0/schema.json",
+  "pageOrder": [
+    "p1_overview",
+    "p2_qa",
+    "p3_funding",
+    "p4_lessons",
+    "p5_scorecard",
+    "p6_cre",
+    "p7_cohorts",
+    "p8_how",
+    "p9_guide"
+  ],
+  "activePageName": "p1_overview"
+}

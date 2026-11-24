@@ -1,0 +1,34 @@
+table Flags
+	lineageTag: 89805c39-a200-53f0-a521-c0a70dfa7ce4
+
+	column flag
+		dataType: string
+		sortByColumn: flag_order
+		lineageTag: 5a2dd7be-8bbb-5fe2-90f1-d209081e7255
+		summarizeBy: none
+		sourceColumn: flag
+	column flag_order
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: bd7b9859-8ca1-57d4-8e4e-ad2883618816
+		summarizeBy: none
+		sourceColumn: flag_order
+	partition Flags = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows({
+				        {"Uninsured deposits > 60%", 1},
+				        {"CET1 after securities losses < 8%", 2},
+				        {"CRE > 300% of capital", 3},
+				        {"Construction > 100% of capital", 4},
+				        {"Loans > deposits", 5},
+				        {"Liquidity < 50% of uninsured deposits", 6},
+				        {"Net charge-offs > 0.5%", 7}
+				    }, {"flag", "flag_order"}),
+				    Typed = Table.TransformColumnTypes(Source, {{"flag_order", Int64.Type}})
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table

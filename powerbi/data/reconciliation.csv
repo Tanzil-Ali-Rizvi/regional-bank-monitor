@@ -1,0 +1,21 @@
+order,check_id,check,python_value
+1,banks,"Banks in the peer group, Q2 2026",101.0
+2,assets_t,Total assets of the peer group ($T),3.938038897
+3,nim_median,"Median NIM, Q2 2026 (%)",3.66
+4,depcost_median,"Median cost of deposits, Q2 2026 (%)",1.8104391974290688
+5,uninsured_median,"Median uninsured deposits, Q2 2026 (%)",40.1673786777431
+6,cet1_median,"Median CET1 ratio, Q2 2026 (%)",12.65
+7,beta_up,"Median deposit beta, hiking cycle",0.41306348970931317
+8,beta_down,"Median deposit beta, cutting cycle",0.32793797384286144
+9,nim100_median,Median NIM change per +100bp (pts),0.049523809523809414
+10,liab_sensitive,Banks losing margin when rates rise,29.0
+11,flags_total,"Risk flags raised, Q2 2026",56.0
+12,flags_two_plus,Banks with 2+ risk flags,10.0
+13,flags_zero,Banks with no risk flags,59.0
+14,cre_over_300,Banks with CRE above 300% of capital,16.0
+15,svb_uninsured,"SVB uninsured deposits, Q4 2022 (%)",93.877222425207
+16,frc_marked,"First Republic CET1 after securities losses, Q4 2022 (%)",6.443219452007795
+17,ew_failed,Failed banks raising all 3 early-warning flags,3.0
+18,ew_survivors,Surviving banks raising all 3 early-warning flags,0.0
+19,flagstar_nim100,Flagstar NIM change per +100bp (pts),-0.18857142857142856
+20,mt_depcost_peak,"M&T cost of deposits, Q2 2024 (%)",2.001881428224196

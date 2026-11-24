@@ -215,7 +215,8 @@ def build(path: Path = OUT) -> Path:
         ("Risk-weighted asset growth per quarter", 0.0075, PCT, "Kept equal to balance-sheet growth by default."),
         ("Tax rate", 0.21, PCT, "US federal statutory rate; state taxes ignored."),
         ("Payout ratio (dividends / net income)", 0.40, PCT, "Typical regional-bank payout."),
-        ("CRE cumulative loss rate over 8 quarters", 0.015, PCT, "Applied to construction, multifamily and non-owner-occupied CRE. 1.5% is a moderate office-led stress."),
+        ("CRE cumulative loss rate over 8 quarters", 0.015, PCT,
+         "Applied to construction, multifamily and non-owner-occupied CRE. 1.5% is a moderate office-led stress."),
         ("Cost of funds floor", 0.001, PCT, "Funding costs cannot fall below this in the cuts scenario."),
         ("CET1 ratio alert level", 0.07, PCT, "4.5% minimum plus the 2.5% conservation buffer."),
     ]
@@ -327,7 +328,8 @@ def build(path: Path = OUT) -> Path:
             "CET1 capital": f"={prev}{R['CET1 capital']}+{col}{R['Net income']}-{col}{R['Dividends']}",
             "Risk-weighted assets": f"={prev}{R['Risk-weighted assets']}*(1+Inputs!$C$12)",
             "CET1 ratio": f"={col}{R['CET1 capital']}/{col}{R['Risk-weighted assets']}",
-            "CET1 after securities losses": f"=({col}{R['CET1 capital']}+MIN(0,{ref['Unrealized securities gain/(loss)']})*(1-Inputs!$C$13))/{col}{R['Risk-weighted assets']}",
+            "CET1 after securities losses": (f"=({col}{R['CET1 capital']}+MIN(0,{ref['Unrealized securities gain/(loss)']})*(1-Inputs!$C$13))"
+                                             f"/{col}{R['Risk-weighted assets']}"),
         }
         for name, formula in f.items():
             put(md, f"{col}{R[name]}", formula, GREEN if formula.startswith("=INDEX(Inputs") else BLACK, fmts.get(name, USD1))
@@ -435,7 +437,7 @@ def build(path: Path = OUT) -> Path:
     ps.conditional_formatting.add(f"D3:J{end}", CellIsRule(operator="equal", formula=["1"], fill=PatternFill("solid", fgColor="F4CCCC")))
     ps.conditional_formatting.add(f"K3:K{end}", CellIsRule(operator="greaterThanOrEqual", formula=["2"],
                                                            fill=PatternFill("solid", fgColor="E06666"), font=Font(name=FONT, bold=True, color="FFFFFF")))
-    ps.conditional_formatting.add(f"A3:M{end}", FormulaRule(formula=[f"$B3=Inputs!$C$4"], fill=PatternFill("solid", fgColor="FFF2CC")))
+    ps.conditional_formatting.add(f"A3:M{end}", FormulaRule(formula=["$B3=Inputs!$C$4"], fill=PatternFill("solid", fgColor="FFF2CC")))
     put(ps, f"B{end + 2}", "Banks flagged", BOLD)
     for k in range(7):
         col = get_column_letter(4 + k)

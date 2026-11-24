@@ -1,0 +1,59 @@
+table Quarters
+	lineageTag: 4eb26ea5-a018-5742-afec-920e5b561d0f
+
+	column quarter_end
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 4f55f6d7-9f4a-5320-b127-1eac11de0285
+		summarizeBy: sum
+		sourceColumn: quarter_end
+	column fed_funds
+		dataType: double
+		formatString: 0.00
+		lineageTag: 481ac704-5396-5a6a-a4ba-350017651d45
+		summarizeBy: sum
+		sourceColumn: fed_funds
+	column ust_2y
+		dataType: double
+		formatString: 0.00
+		lineageTag: 68d5cb38-5bd3-539a-a87a-891c6af3e217
+		summarizeBy: sum
+		sourceColumn: ust_2y
+	column ust_10y
+		dataType: double
+		formatString: 0.00
+		lineageTag: 13c79284-6a9a-53b7-8072-2bac7f22e795
+		summarizeBy: sum
+		sourceColumn: ust_10y
+	column quarter
+		dataType: string
+		sortByColumn: quarter_end
+		lineageTag: 9a1e8de4-07e0-5512-bc20-48a0b8708761
+		summarizeBy: none
+		sourceColumn: quarter
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: ec86ac28-ae17-5aed-88bd-3dfe1125ed5b
+		summarizeBy: none
+		sourceColumn: year
+	column rate_cycle
+		dataType: string
+		lineageTag: 00c65fa1-1940-54b6-aa9f-c110514b776d
+		summarizeBy: none
+		sourceColumn: rate_cycle
+	partition Quarters = m
+		mode: import
+		source =
+				let
+				    Source = Rates_Source,
+				    Typed = Table.TransformColumnTypes(Source, {{"quarter_end", type date}, {"fed_funds", type number}, {"ust_2y", type number}, {"ust_10y", type number}}, "en-US"),
+				    Kept = Table.SelectRows(Typed, each [quarter_end] >= #date(2019, 3, 31) and [quarter_end] <= #date(2026, 6, 30)),
+				    Label = Table.AddColumn(Kept, "quarter", each "Q" & Text.From(Date.QuarterOfYear([quarter_end])) & " " & Text.From(Date.Year([quarter_end])), type text),
+				    Year = Table.AddColumn(Label, "year", each Date.Year([quarter_end]), Int64.Type),
+				    Cycle = Table.AddColumn(Year, "rate_cycle", each if [quarter_end] <= #date(2021, 12, 31) then "1 Low rates (to Q4 2021)"
+				        else if [quarter_end] <= #date(2024, 6, 30) then "2 Hiking (Q1 2022 - Q2 2024)" else "3 Cutting (from Q3 2024)", type text)
+				in
+				    Cycle
+
+	annotation PBI_ResultType = Table

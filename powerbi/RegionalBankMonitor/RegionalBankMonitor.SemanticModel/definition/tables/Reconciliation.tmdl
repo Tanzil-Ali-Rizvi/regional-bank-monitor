@@ -1,0 +1,40 @@
+table Reconciliation
+	lineageTag: d4563ab8-6002-5e0a-a695-8094eddff4f6
+
+	column order
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: 674de387-31b1-56cb-9324-79f7baa6a6bf
+		summarizeBy: none
+		sourceColumn: order
+	column check_id
+		dataType: string
+		isHidden
+		lineageTag: d75c0051-a942-57db-b995-61fc83470a4a
+		summarizeBy: none
+		sourceColumn: check_id
+	column check
+		dataType: string
+		sortByColumn: order
+		lineageTag: fb818358-4867-57f8-b73f-062e261764f9
+		summarizeBy: none
+		sourceColumn: check
+	column python_value
+		dataType: double
+		formatString: 0.000
+		lineageTag: 1060f985-687c-5b34-8d5b-624da95735eb
+		summarizeBy: sum
+		sourceColumn: python_value
+	partition Reconciliation = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "reconciliation.csv"), [Delimiter = ",", Columns = 4, Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Blanks = Table.TransformColumns(Promoted, {}, each if _ = "" then null else _),
+				    Typed = Table.TransformColumnTypes(Blanks, {{"order", Int64.Type}, {"python_value", type number}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table

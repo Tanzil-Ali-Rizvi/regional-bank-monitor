@@ -1,0 +1,8 @@
+relationship 95c407cf-9f8a-5af5-b2d5-c14175c41f66
+	fromColumn: Quarterly.cert
+	toColumn: Banks.cert
+
+relationship 6ae13312-30bb-564b-83fd-7746aa314a41
+	fromColumn: Quarterly.quarter_end
+	toColumn: Quarters.quarter_end
+

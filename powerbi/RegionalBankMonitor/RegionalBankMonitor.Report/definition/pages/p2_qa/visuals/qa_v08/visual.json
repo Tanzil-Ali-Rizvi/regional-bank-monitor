@@ -1,0 +1,183 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "qa_v08",
+  "position": {
+    "x": 785,
+    "y": 402,
+    "z": 8000,
+    "height": 373,
+    "width": 480,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Data rules",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#24324D",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Source: FDIC call reports (BankFind Suite API), Q1 2019 to Q2 2026, insured-bank level; Fed funds and Treasury yields from FRED.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#24324D"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Peer group: 101 US-owned, deposit-funded banks with $10-250B of assets; card, consumer, custody, broker-sweep, foreign-owned and Puerto Rico banks excluded.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#24324D"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "SVB, Signature and First Republic are kept as a case study and excluded from every peer statistic.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#24324D"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Check labels: merger quarters (assets up more than 25%) and banks with no CET1 ratio (community bank leverage ratio).",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#24324D"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Status turns REVIEW if any DAX value differs from Python by more than 0.01.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#24324D"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E3E9F2'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

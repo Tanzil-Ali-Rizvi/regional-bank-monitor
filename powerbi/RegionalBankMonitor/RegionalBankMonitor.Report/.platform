@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Regional Bank Monitor"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "26fcd42e-4400-5214-8649-cf0a8d2cf0fc"
+  }
+}

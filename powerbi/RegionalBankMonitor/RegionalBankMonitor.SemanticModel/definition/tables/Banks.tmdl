@@ -1,0 +1,65 @@
+table Banks
+	lineageTag: 561d4f8a-524f-5830-b068-b4a9d88a7aee
+
+	column cert
+		dataType: int64
+		formatString: 0
+		lineageTag: adfc7ade-6a36-5326-b5a1-585a22f68e08
+		summarizeBy: sum
+		sourceColumn: cert
+	column bank
+		dataType: string
+		sortByColumn: bank_order
+		lineageTag: f1621b11-222f-54cf-ad2b-2f67915e715e
+		summarizeBy: none
+		sourceColumn: bank
+	column state
+		dataType: string
+		lineageTag: 037e0c97-2dde-5e86-9ae0-27e1c4be0df9
+		summarizeBy: none
+		sourceColumn: state
+	column holding_company
+		dataType: string
+		lineageTag: fbc40131-d078-52b1-8d25-418ad13cb045
+		summarizeBy: none
+		sourceColumn: holding_company
+	column failed
+		dataType: boolean
+		lineageTag: 4294246d-f285-5ece-a134-0db1ef26cd0d
+		summarizeBy: none
+		sourceColumn: failed
+	column size_band
+		dataType: string
+		sortByColumn: size_order
+		lineageTag: c163faf0-77c2-5241-89e5-efc1d5590c99
+		summarizeBy: none
+		sourceColumn: size_band
+	column size_order
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: 6b5518ba-057e-568b-b1f3-f8758c74a671
+		summarizeBy: none
+		sourceColumn: size_order
+	column bank_order
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: 2c54fa06-b4aa-53af-afae-6ccfa558c477
+		summarizeBy: none
+		sourceColumn: bank_order
+	column status
+		dataType: string
+		lineageTag: ee15173e-7514-5af5-8550-ad1ac749ce00
+		summarizeBy: none
+		sourceColumn: status
+	partition Banks = m
+		mode: import
+		source =
+				let
+				    Source = Banks_Staging,
+				    Status = Table.AddColumn(Source, "status", each if [failed] then "Failed in 2023" else "Peer", type text)
+				in
+				    Status
+
+	annotation PBI_ResultType = Table

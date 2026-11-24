@@ -1,0 +1,68 @@
+table 'Model Guide'
+	lineageTag: 1282f112-51cd-5a96-b053-63f8e2dfa8c9
+
+	column Object
+		dataType: string
+		lineageTag: b78e63ae-6cb5-5b59-9f9b-7c7b02118ac9
+		summarizeBy: none
+		sourceColumn: Object
+	column 'Object Type'
+		dataType: string
+		lineageTag: 8cf62f61-53a1-5632-ad8f-77796d77c5ef
+		summarizeBy: none
+		sourceColumn: Object Type
+	column Group
+		dataType: string
+		lineageTag: 828f1361-662c-5b87-b389-f46b2e2c0577
+		summarizeBy: none
+		sourceColumn: Group
+	column 'What it does'
+		dataType: string
+		lineageTag: f93852f5-6a78-5c34-a509-9515cb51bfb0
+		summarizeBy: none
+		sourceColumn: What it does
+	column 'Why it was created'
+		dataType: string
+		lineageTag: 5b6f504c-6eba-57a5-b664-ca8dd51a2792
+		summarizeBy: none
+		sourceColumn: Why it was created
+	column 'What it helps find out'
+		dataType: string
+		lineageTag: 71e68b64-12fb-5682-92ce-4d8ffdb8dd53
+		summarizeBy: none
+		sourceColumn: What it helps find out
+	column 'Question Type'
+		dataType: string
+		lineageTag: 97fa6227-42c9-5def-8a77-1071ff7184fc
+		summarizeBy: none
+		sourceColumn: Question Type
+	column 'Question it answers'
+		dataType: string
+		lineageTag: e27674d3-b854-51aa-b3b2-ffe047551a3e
+		summarizeBy: none
+		sourceColumn: Question it answers
+	partition 'Model Guide' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows({
+				        {"Quarterly", "Table", "Fact", "One row per bank and quarter: call-report lines in $M, average balances, CRE loans, unrealized securities, marked CET1, governance label", "Holds the business logic so every measure is a ratio of sums", "Funding, capital, credit and earnings for any bank-quarter", "WHAT", "What did each bank hold and earn each quarter?"},
+				        {"Banks", "Table", "Dimension", "101 peer banks plus SVB, Signature and First Republic, with state, size band and status", "Slices every page by bank and size; keeps failed banks out of peer statistics", "Who is in the peer group", "WHAT", "Which banks are compared?"},
+				        {"Quarters", "Table", "Dimension", "Q1 2019 to Q2 2026 with quarter-average Fed funds, 2- and 10-year Treasury yields and the rate cycle", "One quarter axis and the rate path for betas", "How metrics move with rates", "WHAT", "What was the Fed funds rate each quarter?"},
+				        {"Metrics / Flags", "Table", "Helper", "Lists of scorecard metrics (with lower-is-better) and risk flags", "Drive the scorecard table and the flag chart", "A bank against peer medians; how many banks raise each flag", "HOW", "How does a bank rank on each metric?"},
+				        {"Findings", "Table", "Python results", "Deposit-beta drivers, beta by funding need, early-warning robustness, CRE credit", "Statistics Power BI should show but not recompute", "Why betas differ; how robust the 2023 screen is", "WHY", "What drove deposit costs?"},
+				        {"Reconciliation", "Table", "QA", "20 headline figures with the Python value", "Proves the DAX model matches the governed Python metrics", "Any drift between report and analysis", "HOW", "Do the dashboard numbers match the analysis?"},
+				        {"Cost of Deposits %", "Measure", "03 Funding & Liquidity", "4 x quarterly deposit interest expense / average domestic deposits", "The price a bank pays for its funding", "Who paid up for deposits", "WHAT", "What does each bank pay depositors?"},
+				        {"Deposit Beta (Hikes)", "Measure", "05 Rate Sensitivity", "Change in cost of deposits Q4 2021 to Q2 2024 / change in Fed funds (0.08% to 5.33%)", "Measures how much of the Fed's hikes a bank passed to depositors", "Funding pressure by bank", "WHY", "Which banks had to pay up for deposits?"},
+				        {"NIM Change per +100bp", "Measure", "05 Rate Sensitivity", "Asset yield beta minus funding cost beta over the hiking cycle", "A first-order rate sensitivity from the bank's own history", "Who gains or loses margin if rates rise", "HOW", "Which banks lose margin as rates rise?"},
+				        {"CET1 After Securities Losses %", "Measure", "04 Capital & Credit", "(CET1 + unrealized securities losses after 21% tax) / RWA", "Capital if every bond loss were taken, the SVB question", "Hidden capital holes", "WHY", "How much capital is left if bond losses are realised?"},
+				        {"CRE / Capital %", "Measure", "04 Capital & Credit", "(Construction + multifamily + non-owner-occupied CRE) / (Tier 1 + reserves)", "The interagency 300% concentration test", "CRE concentration", "WHAT", "Which banks are above the CRE guidance?"},
+				        {"Risk Flags", "Measure", "06 Risk Screen", "Count of seven flags for one bank in the selected quarter", "A simple, explainable early-warning screen", "Banks to watch", "WHY", "Which banks look most exposed today?"},
+				        {"Early-Warning Flags", "Measure", "08 Lessons from 2023", "Uninsured > 60%, marked CET1 < 8%, deposit growth 2019-22 > 90%, at Q4 2022", "Tests whether the 2023 failures were visible in public data", "What set SVB, Signature and First Republic apart", "WHY", "Could the 2023 failures have been spotted?"},
+				        {"Selected Quarter", "Measure", "01 Core", "The quarter in the slicer, or Q2 2026 when none is selected", "Every ratio card shows one quarter, never a sum across quarters", "Consistent quarter scoping", "HOW", "Which quarter is the page showing?"},
+				        {"Reconciliation Status", "Measure", "11 Governance & QA", "PASS when all 20 DAX values are within 0.01 of Python", "Control check", "Report and analysis agree", "HOW", "Can I trust these numbers?"}
+				    }, {"Object", "Object Type", "Group", "What it does", "Why it was created", "What it helps find out", "Question Type", "Question it answers"})
+				in
+				    Source
+
+	annotation PBI_ResultType = Table

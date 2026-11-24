@@ -1,0 +1,44 @@
+table Metrics
+	lineageTag: ce338497-8991-5807-a79a-3634e20eca5a
+
+	column metric
+		dataType: string
+		sortByColumn: metric_order
+		lineageTag: f22540da-a13b-5f95-b1b1-0c3415f7d1f0
+		summarizeBy: none
+		sourceColumn: metric
+	column metric_order
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: e9bbda38-907c-552b-82e2-c31ad9e7ee5f
+		summarizeBy: none
+		sourceColumn: metric_order
+	column lower_is_better
+		dataType: boolean
+		lineageTag: d4dcdb0d-02ce-5ce6-9f83-235be70b85d0
+		summarizeBy: none
+		sourceColumn: lower_is_better
+	partition Metrics = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows({
+				        {"Net interest margin (%)", 1, false},
+				        {"Cost of deposits (%)", 2, true},
+				        {"Uninsured deposits (%)", 3, true},
+				        {"Loans / deposits (%)", 4, true},
+				        {"CRE / (Tier 1 + reserves) (%)", 5, true},
+				        {"Unrealized securities loss / Tier 1 (%)", 6, false},
+				        {"CET1 ratio (%)", 7, false},
+				        {"CET1 after securities losses (%)", 8, false},
+				        {"Liquidity / uninsured deposits (%)", 9, false},
+				        {"Return on assets (%)", 10, false},
+				        {"Efficiency ratio (%)", 11, true},
+				        {"Net charge-offs / loans (%)", 12, true}
+				    }, {"metric", "metric_order", "lower_is_better"}),
+				    Typed = Table.TransformColumnTypes(Source, {{"metric_order", Int64.Type}, {"lower_is_better", type logical}})
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
