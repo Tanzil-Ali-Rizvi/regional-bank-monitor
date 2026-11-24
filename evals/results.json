@@ -1,0 +1,46 @@
+{
+  "results": {
+    "tool_selection": {
+      "passed": 41,
+      "total": 41,
+      "score": 1.0,
+      "gate": 0.95
+    },
+    "grounding": {
+      "passed": 164,
+      "total": 164,
+      "score": 1.0,
+      "gate": 1.0
+    },
+    "tamper_caught": {
+      "passed": 1477,
+      "total": 1477,
+      "score": 1.0,
+      "gate": 1.0
+    },
+    "claims": {
+      "passed": 1,
+      "total": 1,
+      "score": 1.0,
+      "gate": 1.0,
+      "beta_vs_loan_to_deposit_spearman": 0.6234129295282469,
+      "beta_vs_loan_to_deposit_p": 3.3365610628503763e-12,
+      "failures_flagged_all_three": 3,
+      "survivors_flagged_all_three": 0,
+      "beta_vs_uninsured_p": 0.3846252471341463
+    }
+  },
+  "held_out_tool_selection": {
+    "passed": 19,
+    "total": 22,
+    "score": 0.8636363636363636
+  },
+  "misses": [],
+  "held_out_misses": [
+    "Compare Regions Bank and Huntington -> expected compare_banks {}, got {'tool': 'bank_profile', 'args': {'bank': 'Regions Bank'}}",
+    "Weakest liquidity against uninsured deposits -> expected rank_banks {'metric': 'uninsured_coverage', 'order': 'worst'}, got {'tool': 'rank_banks', 'args': {'metric': 'uninsured_share', 'order': 'worst'}}",
+    "Which banks carry the biggest unrealized securities losses? -> expected rank_banks {'metric': 'unrealized_to_tier1', 'order': 'worst'}, got {'tool': 'rank_banks', 'args': {'metric': 'unrealized_to_tier1', 'order': 'best'}}"
+  ],
+  "tamper_collisions_skipped": 216,
+  "passed": true
+}

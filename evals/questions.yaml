@@ -1,0 +1,107 @@
+# Build set: the planner is tuned on these. Gate: 95% correct tool and key arguments.
+- q: "Give me an overview of US regional banks"
+  tool: peer_overview
+- q: "How are regional banks doing?"
+  tool: peer_overview
+- q: "Tell me about Flagstar"
+  tool: bank_profile
+  args: {bank: Flagstar Bank}
+- q: "Is Zions Bank healthy?"
+  tool: bank_profile
+  args: {bank: Zions Bank}
+- q: "Profile of First Citizens Bank"
+  tool: bank_profile
+  args: {bank: First Citizens Bank}
+- q: "How is M&T doing?"
+  tool: bank_profile
+  args: {bank: M&T Bank}
+- q: "How does Zions compare with KeyBank and Western Alliance?"
+  tool: compare_banks
+  args: {banks: [Zions Bank, KeyBank, Western Alliance Bank]}
+- q: "Valley National vs Webster vs Flagstar"
+  tool: compare_banks
+- q: "East West Bank versus Cathay Bank"
+  tool: compare_banks
+  args: {banks: [East West Bank, Cathay Bank]}
+- q: "Which banks pay the most for deposits?"
+  tool: rank_banks
+  args: {metric: deposit_cost, order: worst}
+- q: "Who has the lowest cost of deposits?"
+  tool: rank_banks
+  args: {metric: deposit_cost, order: best}
+- q: "Which banks are best capitalized?"
+  tool: rank_banks
+  args: {metric: cet1_ratio, order: best}
+- q: "Which banks have the highest net interest margin?"
+  tool: rank_banks
+  args: {metric: nim, order: best}
+- q: "Which $10-20B banks have the highest NIM?"
+  tool: rank_banks
+  args: {metric: nim, size_band: "$10-20B"}
+- q: "Which banks have the most uninsured deposits?"
+  tool: rank_banks
+  args: {metric: uninsured_share, order: worst}
+- q: "Which banks have the most CRE?"
+  tool: rank_banks
+  args: {metric: cre_concentration, order: worst}
+- q: "Largest banks in the peer group"
+  tool: rank_banks
+  args: {metric: assets, order: best}
+- q: "Who has the worst efficiency ratio?"
+  tool: rank_banks
+  args: {metric: efficiency, order: worst}
+- q: "Which banks have the highest charge-offs?"
+  tool: rank_banks
+  args: {metric: nco_rate, order: worst}
+- q: "Most profitable banks by return on assets"
+  tool: rank_banks
+  args: {metric: roa, order: best}
+- q: "Which banks had the highest deposit beta?"
+  tool: rank_banks
+  args: {metric: up_beta, order: worst}
+- q: "What drove deposit betas?"
+  tool: deposit_betas
+- q: "How much of the Fed hikes did banks pass through to depositors?"
+  tool: deposit_betas
+- q: "Why did deposit costs rise more at some banks?"
+  tool: deposit_betas
+- q: "Could SVB happen again?"
+  tool: lessons_2023
+- q: "What set Signature and First Republic apart?"
+  tool: lessons_2023
+- q: "What are the lessons from the 2023 bank failures?"
+  tool: lessons_2023
+- q: "Would an early warning screen have spotted the failures?"
+  tool: lessons_2023
+- q: "Which banks are risky right now?"
+  tool: risk_screen
+- q: "Show me the watch list"
+  tool: risk_screen
+- q: "Which banks raise red flags?"
+  tool: risk_screen
+- q: "Does ConnectOne raise any flags?"
+  tool: risk_screen
+  args: {bank: ConnectOne Bank}
+- q: "Is office real estate a problem for regional banks?"
+  tool: cre_credit
+- q: "How many banks are above the 300% CRE guidance?"
+  tool: cre_credit
+- q: "Which banks lose most if rates rise?"
+  tool: rate_exposure
+- q: "Who is liability sensitive?"
+  tool: rate_exposure
+- q: "How exposed is Bell Bank to rising rates?"
+  tool: rate_exposure
+  args: {bank: Bell Bank}
+- q: "What happens to Flagstar if the Fed hikes another 100bp?"
+  tool: rate_exposure
+  args: {bank: Flagstar Bank}
+- q: "How has M&T deposit cost changed since 2019?"
+  tool: bank_trend
+  args: {bank: M&T Bank, metric: deposit_cost}
+- q: "Show the NIM trend for Frost Bank"
+  tool: bank_trend
+  args: {bank: Frost Bank, metric: nim}
+- q: "Zions net interest margin over time"
+  tool: bank_trend
+  args: {bank: Zions Bank, metric: nim}

@@ -1,0 +1,56 @@
+# Held-out set: written after the build set, never used for tuning. Reported, not gated.
+- q: "What does the regional bank peer group look like today?"
+  tool: peer_overview
+- q: "Give me a one-line take on KeyBank"
+  tool: bank_profile
+  args: {bank: KeyBank}
+- q: "Is Bank OZK a concern?"
+  tool: bank_profile
+  args: {bank: Bank OZK}
+- q: "Compare Regions Bank and Huntington"
+  tool: compare_banks
+- q: "Frost Bank against Cullen peers like Prosperity Bank"
+  tool: compare_banks
+- q: "Which banks are funded with the most brokered deposits?"
+  tool: rank_banks
+  args: {metric: brokered_share, order: worst}
+- q: "Which lenders are most loan-heavy relative to deposits?"
+  tool: rank_banks
+  args: {metric: loan_to_deposit, order: worst}
+- q: "Weakest liquidity against uninsured deposits"
+  tool: rank_banks
+  args: {metric: uninsured_coverage, order: worst}
+- q: "Which banks carry the biggest unrealized securities losses?"
+  tool: rank_banks
+  args: {metric: unrealized_to_tier1, order: worst}
+- q: "Lowest CET1 among the $50-100B banks"
+  tool: rank_banks
+  args: {metric: cet1_ratio, order: worst, size_band: "$50-100B"}
+- q: "Did banks reprice deposits as fast on the way down?"
+  tool: deposit_betas
+- q: "What made depositors get paid more at some banks during the hikes?"
+  tool: deposit_betas
+- q: "How did Silicon Valley Bank compare with healthy banks before it failed?"
+  tool: lessons_2023
+- q: "Is there a next SVB?"
+  tool: lessons_2023
+- q: "Which banks look fragile on today's screen?"
+  tool: risk_screen
+- q: "What flags does Provident Bank raise?"
+  tool: risk_screen
+  args: {bank: Provident Bank}
+- q: "Are construction loans a concern anywhere?"
+  tool: cre_credit
+- q: "Have CRE-heavy banks seen more charge-offs?"
+  tool: cre_credit
+- q: "If rates keep rising, which banks get squeezed?"
+  tool: rate_exposure
+- q: "How rate sensitive is MidFirst Bank?"
+  tool: rate_exposure
+  args: {bank: MidFirst Bank}
+- q: "Track Flagstar's charge-offs over time"
+  tool: bank_trend
+  args: {bank: Flagstar Bank, metric: nco_rate}
+- q: "How has Western Alliance's uninsured deposit share changed?"
+  tool: bank_trend
+  args: {bank: Western Alliance Bank, metric: uninsured_share}
